@@ -21,6 +21,10 @@ let makeSpotifyRequest = async (uri, token) => {
 	return resp;
 }
 
+let handleError = (res, err) => {
+	res.status(500).send(err)
+}
+
 router.get('/login', (req, res) => {
 	const scopes = 'user-read-private user-read-email user-library-read';
 	res.redirect('https://accounts.spotify.com/authorize' +
@@ -65,13 +69,13 @@ router.get('/album', async (req, res) => {
 
 	try {
 		let resp = await makeSpotifyRequest(`https://api.spotify.com/v1/albums/${id}`, token);
-		res.send(resp.data)
+
+		let album = resp.data;
+		// resp = await makeSpotifyRequest(`https://api.spotify.com/v1/albums/${id}/tracks`, token);
+		// album.tracks = resp.data;
+		res.send(album)
 	} catch (err) {
-		if (err.response.data.error.message == 'The access token expired')
-			console.log("Gotta refresh token")
-		else
-			console.error(err.response.data)
-		res.status(500).send(err)
+		handleError(res, err);
 	}
 
 })
@@ -79,23 +83,28 @@ router.get('/album', async (req, res) => {
 router.get('/artist', async (req, res) => {
 	const { token } = req.cookies;
 	const { id } = req.query;
+	const offset = req.query.offset || 0;
 	if (!id)
 		return res.status(400).send("No id provided.")
 
 	try {
-		let resp = await makeSpotifyRequest(`https://api.spotify.com/v1/artists/${id}`, token);
+		let resp = await makeSpotifyRequest(`https://api.spotify.com/v1/artists/${id}?country=SE`, token);
 		let artist = resp.data;
-		let albums = await makeSpotifyRequest(`https://api.spotify.com/v1/artists/${id}/albums`, token);
+		let albums = await makeSpotifyRequest(`https://api.spotify.com/v1/artists/${id}/albums?country=SE`, token);
 		artist.albums = albums.data.items;
+		let aa = [];
+		for (let album of artist.albums) {
+			if (aa.map(a => a.name).includes(album.name))
+				continue;
+			aa.push(album);
+		}
+		artist.albums = aa;
+
 		let topTracks = await makeSpotifyRequest(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=from_token`, token);
 		artist.topTracks = topTracks.data.tracks;
 		res.send(artist)
 	} catch (err) {
-		if (err.response.data.error.message == 'The access token expired')
-			console.log("Gotta refresh token")
-		else
-			console.error(err.response.data)
-		res.status(500).send()
+		handleError(res, err);
 	}
 })
 
@@ -110,34 +119,29 @@ router.get('/saved', async (req, res) => {
 		let resp = await makeSpotifyRequest(`https://api.spotify.com/v1/me/${type}?limit=32&offset=${offset}`, token);
 		res.send(resp.data)
 	} catch (err) {
-		if (err.response.data.error.message == 'The access token expired')
-			console.log("Gotta refresh token")
-		else
-			console.error(err.response.data)
-		res.status(500).send(err)
+		handleError(res, err);
 	}
 })
 
 router.get('/playlist', async (req, res) => {
 	const { token } = req.cookies;
 	const all = req.query.all || false;
-	const id = req.query.playlistID || undefined;
-	let url = undefined;
-
-	if (all)
-		url = 'https://api.spotify.com/v1/me/playlists';
-	else
-		url = `https://api.spotify.com/v1/playlists/${id}`
+	const id = req.query.id || undefined;
+	const offset = req.query.offset || 0;
 
 	try {
-		let resp = await makeSpotifyRequest(url, token);
-		res.send(resp.data)
+		if (all) {
+			let resp = await makeSpotifyRequest('https://api.spotify.com/v1/me/playlists', token);
+			res.send(resp.data);
+		} else {
+			let resp = await makeSpotifyRequest(`https://api.spotify.com/v1/playlists/${id}`, token);
+			let playlist = resp.data;
+			resp = await makeSpotifyRequest(`https://api.spotify.com/v1/playlists/${id}/tracks?limit=32&offset=${offset}`, token);
+			playlist.tracks = resp.data;
+			res.send(playlist);
+		}
 	} catch (err) {
-		if (err.response.data.error.message == 'The access token expired')
-			console.log("Gotta refresh token")
-		else
-			console.error(err.response.data)
-		res.status(500).send(err)
+		handleError(res, err);
 	}
 })
 

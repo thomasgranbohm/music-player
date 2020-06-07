@@ -3,6 +3,9 @@
     export let cover = false;
 
     import ArtistListing from "../artist/ArtistListing.svelte";
+
+    let albumCover;
+    if (cover) albumCover = item.album.images.pop();
 </script>
 
 <style>
@@ -61,10 +64,10 @@
 
 <div class="track hover" id={item.id} class:cover>
     {#if cover}
-        <img class="track-cover" src={item.album.images.pop().url} alt="" />
+        <img class="track-cover" src={albumCover.url} alt="" />
     {/if}
     <div class="left">
-        {#if item.album}
+        {#if cover && item.album}
             <a href="/albums/{item.album.id}">
                 <b>{item.name}</b>
             </a>

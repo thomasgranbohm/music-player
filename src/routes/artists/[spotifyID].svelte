@@ -14,10 +14,12 @@
 <script>
     export let info;
 
-    console.log(info.albums.filter(a => a.album_group == "album").length);
-
     import Showcase from "../../components/Showcase.svelte";
     import ItemListing from "../../components/item/ItemListing.svelte";
+    import Info from "../../components/Info.svelte";
+
+    let albums = info.albums.filter(a => a.album_group == "album");
+    let singles = info.albums.filter(a => a.album_group == "single");
 </script>
 
 <style>
@@ -27,41 +29,30 @@
         flex-direction: column;
         gap: 1em;
     }
-    .top {
-        height: 16rem;
-        width: 100%;
-        display: flex;
-        align-items: flex-end;
-        gap: 1rem;
-    }
-    .top > h1 {
-        margin: 0;
-        font-size: 3rem;
-    }
-    .top > img {
-        height: 100%;
-    }
 </style>
 
-<div class="artist" id={info.id}>
-    <div class="top">
-        <img src={info.images.shift().url} alt="Picture of {info.name}" />
-        <h1>{info.name}</h1>
-    </div>
+<svelte:head>
+    <title>Artist - {info.name}</title>
+</svelte:head>
 
-    <ItemListing items={info.topTracks} cover={true} />
+<div class="artist" id={info.id}>
+    <Info img={info.images.shift().url} title={info.name} />
+
+    <ItemListing items={info.topTracks} cover={true} needsFooter={false} />
 
     <!-- todo den får en del dupes här -->
-    <Showcase
-        items={info.albums.filter(a => a.album_group == 'album')}
-        type="albums"
-        title="Albums"
-        wrap={false} />
+    {#if albums.length > 0}
+        <div>
+            <h2>Albums</h2>
+            <Showcase items={albums} type="albums" needsFooter={false} />
+        </div>
+    {/if}
 
-    <Showcase
-        items={info.albums.filter(a => a.album_group == 'single')}
-        type="albums"
-        title="Singles"
-        wrap={false} />
+    {#if singles.length > 0}
+        <div>
+            <h2>Singles</h2>
+            <Showcase items={singles} type="albums" needsFooter={false} />
+        </div>
+    {/if}
 
 </div>

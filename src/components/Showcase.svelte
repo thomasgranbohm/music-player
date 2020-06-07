@@ -1,15 +1,21 @@
 <script>
     export let items = [];
-    export let title;
     export let type;
     export let wrap = true;
     export let observerOptions;
+    export let needsFooter = true;
 
     import ItemMedium from "./item/ItemMedium.svelte";
     import { onMount } from "svelte";
-    let clientWidth, container, sentinel;
+    let clientWidth, container, sentinel, observer;
     let innerWidth, innerHeight, marginLeft;
     let minMarginLeft = 32;
+
+    let removedObserver = observerOptions == undefined;
+
+    $: if (observer != undefined && sentinel != undefined) {
+        observer.observe(sentinel);
+    }
 
     let vwidth = 16 * 12;
     let amountPerRow;
@@ -30,7 +36,6 @@
 
         const observer = new IntersectionObserver(
             entries => {
-                console.log("running");
                 if (entries.some(entry => entry.intersectionRatio > 0)) {
                     getNextAlbums();
                 }
@@ -41,7 +46,6 @@
         );
         let getNextAlbums = async () => {
             try {
-                console.log(items.length);
                 let resp = await fetch(
                     `${observerOptions.uri}&offset=${items.length}`,
                     {
@@ -49,11 +53,22 @@
                     }
                 );
                 let json = await resp.json();
-                if (type == "albums")
-                    items = items.concat(json.items.map(i => i.album));
-                else items = items.concat(json.items.map(i => i.track));
-                if (json.limit + json.offset >= json.total) {
-                    console.log("Removed observer");
+                let limit, offset, total;
+                if (type == "albums" || type == "tracks") {
+                    if (type == "albums")
+                        items = items.concat(json.items.map(i => i.album));
+                    else items = items.concat(json.items.map(i => i.track));
+                    limit = json.limit;
+                    offset = json.offset;
+                    total = json.total;
+                } else if (type == "playlist") {
+                    items = json.tracks.items;
+                    limit = json.tracks.limit;
+                    offset = json.tracks.offset;
+                    total = json.tracks.total;
+                }
+                if (limit + offset >= total) {
+                    removedObserver = true;
                     observer.unobserve(sentinel);
                 }
             } catch (err) {
@@ -63,21 +78,14 @@
         };
 
         await getNextAlbums();
-        observer.observe(sentinel);
+        if (!removedObserver) observer.observe(sentinel);
     });
 </script>
 
 <style>
-    h1 {
-        /* position: sticky;
-        top: 0;
-        left: 0; */
-        background-color: transparent;
-        z-index: 2;
-    }
     .items {
         width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
         overflow-y: visible;
         display: flex;
         flex-direction: row;
@@ -89,33 +97,39 @@
         margin-right: var(--margin);
     }
     footer {
-        height: 16rem;
+        height: 8rem;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<h1>{title}</h1>
 <div
     class="items"
     bind:clientWidth
     bind:this={container}
     style="flex-wrap: {wrap ? 'wrap' : 'no-wrap'}; --margin: {wrap ? marginLeft : 32}">
     {#if marginLeft}
-        {#each items as item, i (item.id)}
+        {#each items as item, i (i)}
             <!-- TODO only render new items , think the keyed thing did it-->
+
             <ItemMedium
                 width={vwidth}
                 key={i + 1}
                 marginLeft={wrap ? marginLeft : 32}
                 info={item}
                 {type} />
+            {#if i + 5 == items.length}
+                <div id="sentinel" bind:this={sentinel} />
+            {/if}
         {/each}
     {/if}
-    <footer id="sentinel" bind:this={sentinel}>
-        {#if items.length == 0}
-            <h2>Loading...</h2>
-        {:else}this be da footah{/if}
-    </footer>
+    {#if !removedObserver}
+        <h2>Loading...</h2>
+    {:else if needsFooter}
+        <footer>Bottom. Please insert something nice...</footer>
+    {/if}
 </div>

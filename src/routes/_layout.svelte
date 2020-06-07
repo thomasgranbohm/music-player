@@ -6,6 +6,7 @@
     import { onMount, setContext, getContext } from "svelte";
 
     let playlists = [];
+    let dark = true;
 
     onMount(async () => {
         if (getContext("playlists") != null) return;
@@ -36,6 +37,11 @@
 
         // TODO playlists reloading all the time
     }
+
+    let changeColorMode = () => {
+        dark = !dark;
+        console.log(`${dark ? "Dark" : "Light"} mode is now on!`);
+    };
 </script>
 
 <style>
@@ -51,9 +57,10 @@
         overflow-x: hidden;
         position: relative;
         width: 100%;
-        background-color: transparent;
         margin: 0;
         box-sizing: border-box;
+        color: var(--color);
+        background-color: var(--background-color);
     }
     #slotContainer {
         grid-area: main;
@@ -61,12 +68,13 @@
         overflow-x: hidden;
         z-index: 2;
         padding: 1rem 2rem;
-        background-color: white;
+        background-color: var(--background-color);
     }
 </style>
 
-<main>
-    <Nav {segment} />
+<svelte:body />
+<main class:dark>
+    <Nav {segment} {changeColorMode} />
     <Sidebar {playlists} />
     <div id="slotContainer">
         <slot />

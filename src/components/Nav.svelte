@@ -1,5 +1,6 @@
 <script>
     export let segment;
+    export let changeColorMode;
 </script>
 
 <style>
@@ -70,5 +71,6 @@
                 login
             </a>
         </li>
+        <button on:click={changeColorMode}>Change color mode</button>
     </ul>
 </nav>

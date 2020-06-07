@@ -16,36 +16,15 @@
 
     import ItemListing from "../../components/item/ItemListing.svelte";
     import ArtistListing from "../../components/artist/ArtistListing.svelte";
+    import Info from "../../components/Info.svelte";
 </script>
 
-<style>
-    #info {
-        width: 100%;
-        height: 20em;
-        display: grid;
-        grid-template-areas: "albumcover text";
-        grid-template-columns: 20em 1fr;
-        grid-template-rows: 1fr;
-    }
-    #info > img {
-        grid-area: albumcover;
-        margin: 5% 0;
-        height: 90%;
-        border: 1px solid gray;
-    }
-    #text {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-</style>
+<svelte:head>
+    <title>Album - {info.name}</title>
+</svelte:head>
 
-<div id="info">
-    <img src={info.images[0].url} alt="{info.name} cover" />
-    <div id="text">
-        <h1>{info.name}</h1>
-        <ArtistListing artists={info.artists} />
-        <h4>{info.genres.join(', ')}</h4>
-    </div>
-</div>
+<Info img={info.images[0].url} title={info.name}>
+    <ArtistListing artists={info.artists} />
+    <h4>{info.genres.join(', ')}</h4>
+</Info>
 <ItemListing items={info.tracks.items} />
