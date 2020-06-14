@@ -64,13 +64,5 @@
                 home
             </a>
         </li>
-        <li>
-            <a
-                aria-current={segment === 'login' ? 'page' : undefined}
-                href="login">
-                login
-            </a>
-        </li>
-        <button on:click={changeColorMode}>Change color mode</button>
     </ul>
 </nav>

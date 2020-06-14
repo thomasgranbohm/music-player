@@ -14,18 +14,27 @@
         align-items: flex-end;
         gap: 1rem;
         margin-bottom: 1rem;
+
+        /* background: linear-gradient(
+            0deg,
+            var(--background-color) 0%,
+            rgba(29, 185, 177, 1) 50%
+        ); */
     }
     img {
-        height: 20rem;
-        width: 20rem;
+        height: 20em;
+        width: 20em;
+        background: transparent;
     }
     .titlecontainer {
-        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: end;
+    }
+    .titlecontainer > h1 {
+        margin: 0;
     }
 </style>
 

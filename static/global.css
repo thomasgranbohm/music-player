@@ -8,18 +8,29 @@
     --color: #333;
     --background-color: #f8f8f8;
     --alt-background-color: #d0d0d0;
+    --inverted-background-color: #202020;
+    --spotify-green: #1db954;
+
+    --spotify-logo-url: url("/images/spotify-logo-Black.png");
+    --mode-logo-url: url("/images/dark-mode.svg");
 }
 
 body {
     margin: 0;
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: "CircularStd";
+    /* font-family: Circular, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+        Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif; */
     font-size: 14px;
 }
 .dark {
     --color: #ddd;
-    --background-color: #333;
-    --alt-background-color: #202020;
+    --background-color: #202020;
+    --alt-background-color: #333;
+    --inverted-background-color: #f8f8f8;
+
+    --spotify-logo-url: url("/images/spotify-logo-White.png");
+    --mode-logo-url: url("/images/light-mode.svg");
 }
 
 h1,
@@ -31,7 +42,7 @@ h6 {
     margin: 0 0 0.5em 0;
     font-weight: 400;
     line-height: 1.2;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "CircularStd";
 }
 
 h1 {
@@ -56,9 +67,49 @@ a {
     align-items: center;
 }
 
+.sidebar-button {
+    /* TODO responsive width */
+    width: 16rem;
+    height: 4rem;
+
+    background-color: var(--background-color);
+    color: var(--color);
+    font-weight: 500;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    border: none;
+    outline: none;
+
+    padding-right: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dark-mode::after {
+    content: "";
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: var(--icon-url);
+    background-size: 2rem;
+    display: inline-block;
+    transform: rotate(45deg);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--color);
+    margin: 0 auto;
+}
+
 .active {
-    background-color: #1db954;
-    color: white;
+    background-color: var(--spotify-green);
+    color: black;
     font-weight: 500;
 }
 
@@ -67,12 +118,49 @@ a {
 }
 
 .hover:hover {
-    background-color: var(--alt-background-color);
-    color: var(--color);
+    /* BAAAAAAD */
+    background-color: var(--alt-background-color) !important;
+    color: var(--color) !important;
+}
+
+.small-item {
+    grid-template-areas: "name artist album time";
+    grid-template-columns: 4fr 2fr 3fr 3rem;
+    padding: 0 1rem;
+    grid-gap: 1em;
 }
 
 @media (min-width: 400px) {
     body {
         font-size: 16px;
     }
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/Circular/Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/Circular/RegularItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/Circular/Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/Circular/BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
 }

@@ -7,13 +7,18 @@
             credentials: "same-origin"
         });
         const info = await res.json();
-
         return { info };
     }
 </script>
 
 <script>
     export let info;
+
+    // $: {
+    //     console.log("New stuff:");
+    //     console.log("ID: %s", spotifyID);
+    //     console.log("Info: %o", info);
+    // }
 
     import Info from "../../components/Info.svelte";
     import ItemListing from "../../components/item/ItemListing.svelte";
@@ -24,4 +29,7 @@
 </svelte:head>
 
 <Info img={info.images[0].url} title={info.name} />
-<ItemListing cover={true} items={info.tracks.items.map(i => i.track)} />
+<ItemListing
+    context="list"
+    cover={true}
+    items={info.tracks.items.map(i => i.track)} />

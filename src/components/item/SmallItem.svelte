@@ -1,33 +1,40 @@
 <script>
     export let item;
     export let cover = false;
+    export let context = "album";
 
     import ArtistListing from "../artist/ArtistListing.svelte";
 
     let albumCover;
-    if (cover) albumCover = item.album.images.pop();
+    // $: if (cover) {
+    //     albumCover = item.album.images.sort((a, b) => a.width > b.width)[0];
+    // }
 </script>
 
 <style>
     .track {
+        --height: 3em;
         width: 100%;
-        height: 3em;
+        height: var(--height);
 
         display: grid;
-        grid-template-areas: "left right";
-        grid-template-columns: auto 16em;
-        grid-gap: 1em;
 
         align-items: center;
+
+        border-bottom: 1px var(--alt-background-color) solid;
     }
 
-    .track:not(.cover) .left {
-        padding-left: 1em;
+    .track.list {
+        grid-template-areas: "name artist album time";
+        grid-template-columns: 5fr 2fr 3fr 3rem;
+        padding: 0 1rem;
+        grid-gap: 1em;
     }
 
-    .cover {
-        grid-template-areas: "cover left right";
-        grid-template-columns: 3em auto 16em;
+    .track.album {
+        grid-template-areas: "number name . artist explicit time";
+        grid-template-columns: var(--height) repeat(3, auto) 6rem 4rem;
+        padding-right: 1rem;
     }
 
     .track > * {
@@ -35,24 +42,44 @@
         overflow: hidden;
         white-space: nowrap;
     }
-    .left,
-    .right {
+    .number,
+    .name,
+    .artist,
+    .album,
+    .time {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-    .left {
-        grid-area: left;
-        justify-content: flex-start;
+
+    .track.album .artist {
+        width: auto;
+        overflow: hidden;
+        /* width: 40%; */
     }
-    .right {
-        grid-area: right;
-        justify-content: flex-end;
-        padding-right: 1em;
+
+    .track.album .name {
+        max-width: 90%;
+        width: auto;
     }
-    .track-cover {
-        height: 100%;
-        width: 100%;
+
+    .track.album .name::after {
+        content: "–";
+        margin: 0 1rem;
+    }
+    .explicit {
+        margin-left: auto;
+        min-width: 5rem;
+        color: var(--spotify-green);
+    }
+    .time {
+        min-width: 4rem;
+    }
+    .number {
+        height: var(--height);
+        width: var(--height);
+        justify-content: center;
     }
     a {
         text-decoration: none;
@@ -62,24 +89,48 @@
     }
 </style>
 
-<div class="track hover" id={item.id} class:cover>
-    {#if cover}
-        <img class="track-cover" src={albumCover.url} alt="" />
+<div
+    class="track hover"
+    id={item.id}
+    class:cover
+    class:album={context == 'album'}
+    class:list={context == 'list'}>
+    {#if context == 'album'}
+        <p class="number">{item.track_number}</p>
     {/if}
-    <div class="left">
-        {#if cover && item.album}
+    <div class="name">
+        {#if item.album}
             <a href="/albums/{item.album.id}">
                 <b>{item.name}</b>
             </a>
         {:else}
             <b>{item.name}</b>
         {/if}
+        {#if context == 'list' && item.explicit}
+            <b class="explicit">EXPLICIT</b>
+        {/if}
+    </div>
+    <div class="artist">
         <ArtistListing artists={item.artists} />
     </div>
-    <div class="right">
-        <b class="explicit" hidden={!item.explicit}>EXPLICIT</b>
-        <p class="time">
+
+    {#if context == 'list'}
+        <a href="/albums/{item.album.id}">
+            <p>{item.album.name}</p>
+        </a>
+    {/if}
+    {#if context == 'album'}
+        <b
+            class="explicit"
+            style="visibility: {!item.explicit ? 'hidden' : 'visible'}">
+            EXPLICIT
+        </b>
+    {/if}
+    <p class="time">
+        {#if typeof item.duration_ms == typeof 'string'}
+            {item.duration_ms}
+        {:else}
             {Math.floor(item.duration_ms / (60 * 1000))}:{new String(Math.floor((item.duration_ms % 60000) / 1000)).padStart(2, '0')}
-        </p>
-    </div>
+        {/if}
+    </p>
 </div>

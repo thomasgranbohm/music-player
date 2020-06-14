@@ -27,4 +27,4 @@
     <ArtistListing artists={info.artists} />
     <h4>{info.genres.join(', ')}</h4>
 </Info>
-<ItemListing items={info.tracks.items} />
+<ItemListing context="album" items={info.tracks.items} />

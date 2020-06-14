@@ -3,6 +3,7 @@
     export let cover = false;
     export let observerOptions;
     export let needsFooter = true;
+    export let context = "list";
 
     import SmallItem from "./SmallItem.svelte";
 
@@ -81,16 +82,16 @@
 </style>
 
 <div id="trackListing">
-    <!-- {#if items instanceof Object}
-        <SmallItem {items} {cover} />
-    {:else} -->
-    {#each items as item, i}
-        <SmallItem {item} {cover} />
+    <!-- <SmallItem
+        item={{ track_number: '#', name: 'Title', artists: ['Artist'], explicit: false, album: { name: 'Album' }, duration_ms: 'Time' }}
+        {cover}
+        {context} /> -->
+    {#each items as item, i (i)}
+        <SmallItem {item} {cover} {context} />
         {#if i + 5 == items.length}
             <div id="sentinel" bind:this={sentinel} />
         {/if}
     {/each}
-    <!-- {/if} -->
     {#if !removedObserver}
         <h2>Loading...</h2>
     {:else if needsFooter}

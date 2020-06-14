@@ -13,6 +13,6 @@
 <p class="text-no-overflow">
     {#each artists as artist, i}
         <ArtistLink {artist} />
-        {i < artists.length - 1 ? '/ ' : ''}
+        {#if i < artists.length - 1}{i == 0 ? 'feat. ' : '& '}{/if}
     {/each}
 </p>

@@ -38,7 +38,11 @@
 <div class="artist" id={info.id}>
     <Info img={info.images.shift().url} title={info.name} />
 
-    <ItemListing items={info.topTracks} cover={true} needsFooter={false} />
+    <ItemListing
+        context="album"
+        items={info.topTracks}
+        cover={true}
+        needsFooter={false} />
 
     <!-- todo den får en del dupes här -->
     {#if albums.length > 0}

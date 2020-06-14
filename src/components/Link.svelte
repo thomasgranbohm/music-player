@@ -8,7 +8,6 @@
 <style>
     a {
         width: 100%;
-        /* text-transform: capitalize; */
         text-decoration: none;
         padding: 0 1rem;
     }

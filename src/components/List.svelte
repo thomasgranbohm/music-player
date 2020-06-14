@@ -4,19 +4,32 @@
     export let setActive;
     export let active;
 
-    import Item from "./Item.svelte";
+    import Link from "../components/Link.svelte";
 </script>
 
 <style>
     h3 {
-        margin-top: 1rem;
-        padding: 0 1rem;
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: start;
+        align-items: flex-end;
+
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+
+        background-color: var(--background-color);
+    }
+    .list {
+        margin-bottom: 1rem;
     }
 </style>
 
 <h3>{title}</h3>
 <div class="list">
     {#each list as item}
-        <Item {setActive} {active} {item} />
+        <Link {setActive} {active} {item} />
     {/each}
 </div>

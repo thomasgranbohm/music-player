@@ -13,10 +13,6 @@
         margin: 0;
     }
 
-    /* a + a::before {
-        content: ", ";
-    } */
-
     a:hover {
         text-decoration: underline;
     }

@@ -43,13 +43,11 @@
         position: relative;
     }
     .item-cover {
+        background-color: var(--inverted-background-color);
         object-fit: cover;
         z-index: 2;
         border: 1px solid rgb(126, 126, 126);
     }
-    /* .name {
-        font-weight: 500;
-    } */
     .name:hover,
     .item-cover-container:hover {
         text-decoration: underline;
@@ -72,7 +70,7 @@
         <img
             class="item-cover"
             src={type == 'tracks' ? info.album.images[1].url : info.images[1].url}
-            alt={info.id} />
+            alt={info.name} />
     </a>
     <a
         class="name text-no-overflow"

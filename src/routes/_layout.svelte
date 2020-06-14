@@ -50,9 +50,9 @@
         width: 100vw;
 
         display: grid;
-        grid-template-areas: "nav nav" "sidebar main";
-        grid-template-columns: 16em 1fr;
-        grid-template-rows: 6em 1fr;
+        grid-template-areas: "sidebar main";
+        grid-template-columns: 16rem 1fr;
+        grid-template-rows: 1fr;
 
         overflow-x: hidden;
         position: relative;
@@ -70,13 +70,24 @@
         padding: 1rem 2rem;
         background-color: var(--background-color);
     }
+
+    #login-container {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
 </style>
 
 <svelte:body />
-<main class:dark>
-    <Nav {segment} {changeColorMode} />
-    <Sidebar {playlists} />
-    <div id="slotContainer">
+{#if segment == 'login'}
+    <div id="login-container">
         <slot />
     </div>
-</main>
+{:else}
+    <main class:dark>
+        <Sidebar {playlists} {changeColorMode} />
+        <div id="slotContainer">
+            <slot />
+        </div>
+    </main>
+{/if}
