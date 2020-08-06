@@ -2,12 +2,15 @@
 import jwt from 'jsonwebtoken';
 
 const nonAuthURIs = [
-	'/login'
+	'/login',
+	'/global.css',
+	'/fonts'
 ]
 
 const auth = async (req, res, next) => {
 	if (!req.url.startsWith('/client/')) {
-		if (!nonAuthURIs.includes(req.originalUrl)) {
+		let some = nonAuthURIs.some(start => req.originalUrl.startsWith(start));
+		if (!some) {
 			try {
 				let cookies = req.header('cookie');
 				if (!cookies) throw new Error("No cookie");

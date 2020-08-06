@@ -2,10 +2,10 @@ import sirv from 'sirv';
 import express, { Router } from 'express';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
-import APIRouter from './api/APIRouter';
+import router from './api/router';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import auth from './api/auth';
+import middleware from './api/middleware';
 
 
 const { PORT, NODE_ENV } = process.env;
@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.use('/api', APIRouter);
+app.use('/api', router);
 
 app.use(
 	compression({ threshold: 0 }),
-	auth,
+	middleware,
 	sirv('static', { dev }),
 	sapper.middleware()
 )

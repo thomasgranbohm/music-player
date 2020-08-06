@@ -1,7 +1,6 @@
 <script>
-    export let segment;
-
-    import Nav from "../components/Nav.svelte";
+	export let segment;
+	
     import Sidebar from "../components/Sidebar.svelte";
     import { onMount, setContext, getContext } from "svelte";
 
@@ -9,13 +8,15 @@
     let dark = true;
 
     onMount(async () => {
-        if (getContext("playlists") != null) return;
-        let token = document.cookie
+		if (getContext("playlists") != null) return;
+		if (segment == 'login') return;
+        try {
+			
+			let token = document.cookie
             .split(";")
             .filter(c => c.startsWith("token"))[0]
             .split("=")[1];
 
-        try {
             let resp = await fetch(`/api/playlist?all=true`, {
                 credentials: "same-origin"
             });

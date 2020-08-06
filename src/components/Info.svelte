@@ -22,16 +22,18 @@
         ); */
     }
     img {
-        height: 20em;
-        width: 20em;
-        background: transparent;
+		height: 20em;
+		width: 20em;
+		background: transparent;
+		object-fit: cover;
+		object-position: center;
     }
     .titlecontainer {
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: end;
+        justify-content: flex-end;
     }
     .titlecontainer > h1 {
         margin: 0;

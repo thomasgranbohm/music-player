@@ -29,8 +29,8 @@ let makeSpotifyRequest = async (uri, token) => {
 
 let handleError = (res, err) => {
 	console.log("Got error! Error Name: %s", err.name)
-	if (err.name == 'TokenExpiredError')
-		res.cookie().status(500).send(err)
+	if (err.name == 'TokenExpiredError' || err.name == 'JsonWebTokenError')
+		res.clearCookie('token').status(500).send(err)
 	else
 		res.status(500).send(err)
 }

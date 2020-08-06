@@ -93,7 +93,7 @@
         {/if}
     {/each}
     {#if !removedObserver}
-        <h2>Loading...</h2>
+		<img class="loading-spinner" preload src="/images/image-loading.svg" alt="Loading">
     {:else if needsFooter}
         <footer>Bottom. Please insert something nice...</footer>
     {/if}

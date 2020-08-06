@@ -15,7 +15,7 @@
 
         display: flex;
         justify-content: start;
-        align-items: flex-end;
+        align-items: center;
 
         margin-top: 0.5rem;
         padding: 0.5rem 1rem;

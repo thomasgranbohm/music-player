@@ -55,7 +55,10 @@
     }
     :last-of-type {
         margin-right: var(--margin);
-    }
+	}
+	a {
+		width: 100%;
+	}
 </style>
 
 <div

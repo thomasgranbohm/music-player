@@ -1,6 +1,5 @@
 <script>
     export let segment;
-    export let changeColorMode;
 </script>
 
 <style>

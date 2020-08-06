@@ -15,8 +15,7 @@
         border-right: 1px solid gray;
         width: var(--width);
         height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
+		overflow: hidden;
         display: grid;
         grid-template-areas: "logo" "rest" "buttons";
         grid-template-rows: auto 1fr 4rem;
@@ -48,7 +47,7 @@
         --icon-url: var(--mode-logo-url);
     }
     .divider {
-        width: 80%;
+        width: 100%;
     }
 </style>
 

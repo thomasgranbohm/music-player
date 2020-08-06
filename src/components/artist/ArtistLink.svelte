@@ -1,5 +1,5 @@
 <script>
-    export let artist;
+	export let artist;
 </script>
 
 <style>
@@ -18,4 +18,7 @@
     }
 </style>
 
-<a href="/artists/{artist.id}">{artist.name}</a>
+<a href="/artists/{artist.id}">
+	<slot></slot>
+	{artist.name}
+</a>

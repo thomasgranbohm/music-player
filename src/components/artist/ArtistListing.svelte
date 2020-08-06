@@ -12,7 +12,6 @@
 
 <p class="text-no-overflow">
     {#each artists as artist, i}
-        <ArtistLink {artist} />
-        {#if i < artists.length - 1}{i == 0 ? 'feat. ' : '& '}{/if}
+        <ArtistLink {artist} />{#if i < artists.length - 1}<span>{i == 0 ? ' feat. ' : ', '}</span>{/if}
     {/each}
 </p>

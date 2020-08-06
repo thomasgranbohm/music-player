@@ -25,11 +25,16 @@
     }
 
     .track.list {
-        grid-template-areas: "name artist album time";
-        grid-template-columns: 5fr 2fr 3fr 3rem;
+        grid-template-areas: "name name artist album time";
+        grid-template-columns: 5fr 6rem 2fr 3fr 3rem;
         padding: 0 1rem;
         grid-gap: 1em;
     }
+
+	.track.list.isExplicit {
+		grid-template-areas: "name explicit artist album time";
+		grid-template-columns: 5fr 6rem 2fr 3fr 3rem;
+	}
 
     .track.album {
         grid-template-areas: "number name . artist explicit time";
@@ -42,6 +47,18 @@
         overflow: hidden;
         white-space: nowrap;
     }
+	.name {
+		grid-area: name;
+	}
+	.artist {
+		grid-area: artist;
+	}
+	.album {
+		grid-area: album;
+	}
+	.time {
+		grid-area: time;
+	}
     .number,
     .name,
     .artist,
@@ -61,7 +78,7 @@
 
     .track.album .name {
         max-width: 90%;
-        width: auto;
+        width: auto;	
     }
 
     .track.album .name::after {
@@ -69,6 +86,7 @@
         margin: 0 1rem;
     }
     .explicit {
+		grid-area: explicit;
         margin-left: auto;
         min-width: 5rem;
         color: var(--spotify-green);
@@ -87,6 +105,9 @@
     a:hover {
         text-decoration: underline;
     }
+	.number, .time, .explicit {
+		flex-shrink: 0;
+	}
 </style>
 
 <div
@@ -94,22 +115,23 @@
     id={item.id}
     class:cover
     class:album={context == 'album'}
-    class:list={context == 'list'}>
+	class:list={context == 'list'}
+	class:isExplicit={context == 'list' && item.explicit}>
     {#if context == 'album'}
         <p class="number">{item.track_number}</p>
     {/if}
     <div class="name">
         {#if item.album}
-            <a href="/albums/{item.album.id}">
+            <a  class="text-no-overflow" href="/albums/{item.album.id}">
                 <b>{item.name}</b>
             </a>
         {:else}
             <b>{item.name}</b>
         {/if}
-        {#if context == 'list' && item.explicit}
-            <b class="explicit">EXPLICIT</b>
-        {/if}
     </div>
+	{#if context == 'list' && item.explicit}
+		<b class="explicit">EXPLICIT</b>
+	{/if}
     <div class="artist">
         <ArtistListing artists={item.artists} />
     </div>

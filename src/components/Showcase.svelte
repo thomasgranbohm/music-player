@@ -5,7 +5,7 @@
     export let observerOptions;
     export let needsFooter = true;
 
-    import ItemMedium from "./item/ItemMedium.svelte";
+    import MediumItem from "./item/MediumItem.svelte";
     import { onMount } from "svelte";
     let clientWidth, container, sentinel, observer;
     let innerWidth, innerHeight, marginLeft;
@@ -116,7 +116,7 @@
         {#each items as item, i (i)}
             <!-- TODO only render new items , think the keyed thing did it-->
 
-            <ItemMedium
+            <MediumItem
                 width={vwidth}
                 key={i + 1}
                 marginLeft={wrap ? marginLeft : 32}
@@ -128,7 +128,7 @@
         {/each}
     {/if}
     {#if !removedObserver}
-        <h2>Loading...</h2>
+        <img class="loading-spinner" preload src="/images/image-loading.svg" alt="Loading">
     {:else if needsFooter}
         <footer>Bottom. Please insert something nice...</footer>
     {/if}

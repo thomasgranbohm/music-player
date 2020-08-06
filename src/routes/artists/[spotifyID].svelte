@@ -37,12 +37,15 @@
 
 <div class="artist" id={info.id}>
     <Info img={info.images.shift().url} title={info.name} />
-
-    <ItemListing
+	
+	<div>
+		<h2>Most popular</h2>		
+		<ItemListing
         context="album"
         items={info.topTracks}
         cover={true}
         needsFooter={false} />
+	</div>
 
     <!-- todo den får en del dupes här -->
     {#if albums.length > 0}
