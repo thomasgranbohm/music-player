@@ -14,3 +14,13 @@ A logged in user gets access to:
 -   Web playback
 -   Responsive design
 -   Sessions instead of JWT
+
+## `.env` file should look like this
+
+```conf
+CLIENT_ID=<your Spotify App client ID>
+CLIENT_SECRET=<your Spotify App client secret>
+BASE_URL=<your Spotify redirect uri>
+JWT_SECRET=<your JWT Secret>
+PORT=<preferred port>
+```
