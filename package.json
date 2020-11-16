@@ -1,6 +1,6 @@
 {
-	"name": "TODO",
-	"description": "TODO",
+	"name": "music-player",
+	"description": "Web Player for Spotify",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "env-cmd -f ./.env sapper dev",

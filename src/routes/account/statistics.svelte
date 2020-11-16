@@ -1,31 +1,31 @@
 <script context="module">
-    export async function preload(page, session) {
-        const res = await this.fetch(`/api/top?time_range=short_term`, {
-            credentials: "same-origin"
-        }).catch(err => console.log("Got fetch error"));
-        const info = res.json();
+	export async function preload(page, session) {
+		const res = await this.fetch(`/api/top?time_range=short_term`, {
+			credentials: "same-origin",
+		}).catch((err) => console.log("Got fetch error"));
+		const info = res.json();
 
-        return { info };
-    }
+		return { info };
+	}
 </script>
 
 <script>
-    export let info;
+	export let info;
 
 	import Statistics from "../../components/statistic/Container.svelte";
 
 	let selectedTerm = "short_term";
-	
+
 	let fetchStatistics = async (term) => {
 		try {
 			const res = await fetch(`/api/top?time_range=${term}`, {
-				credentials: "same-origin"
-			})
+				credentials: "same-origin",
+			});
 			info = res.json();
-		} catch (err) {};
-	}
+		} catch (err) {}
+	};
 
-	$: fetchStatistics(selectedTerm)
+	$: fetchStatistics(selectedTerm);
 </script>
 
 <style>
@@ -38,15 +38,15 @@
 	#term {
 		color: var(--color);
 		background-color: var(--background-color);
-		
+
 		padding: 0.5rem;
 		border: none;
 	}
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+	.container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 </style>
 
 <nav>
@@ -59,7 +59,7 @@
 </nav>
 <div class="container">
 	{#await info}
-		<h2>Loading...</h2>	
+		<h2>Loading...</h2>
 	{:then data}
 		<Statistics title="Tracks" info={data.tracks} context="tracks" />
 		<Statistics title="Artists" info={data.artists} context="artists" />
