@@ -19,10 +19,10 @@ a {
 }
 
 :root {
-	--color: #333;
-	--background-color: #f8f8f8;
-	--alt-background-color: #d0d0d0;
-	--inverted-background-color: #202020;
+	--color: #282828;
+	--background-color: #ffffff;
+	--alt-background-color: #141414;
+	--inverted-background-color: #191414;
 	--spotify-green: #1db954;
 
 	--spotify-logo-url: url("/images/spotify-logo-Black.png");
@@ -45,9 +45,9 @@ body {
 
 .dark {
 	--color: #ddd;
-	--background-color: #202020;
-	--alt-background-color: #333;
-	--inverted-background-color: #f8f8f8;
+	--background-color: #191414;
+	--alt-background-color: #282828;
+	--inverted-background-color: #ffffff;
 
 	--spotify-logo-url: url("/images/spotify-logo-White.png");
 	--mode-logo-url: url("/images/light-mode.svg");

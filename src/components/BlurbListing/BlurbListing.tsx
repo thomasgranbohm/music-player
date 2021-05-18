@@ -8,7 +8,7 @@ type BlurbListingType = {
 
 const BlurbListing: FC<BlurbListingType> = ({ title, children, wrap }) => (
 	<div className={classes["listing"]}>
-		<h3>{title}</h3>
+		<h1 className={classes["title"]}>{title}</h1>
 		<div className={classes["items"]}>{children}</div>
 	</div>
 );

@@ -15,12 +15,9 @@ A logged in user gets access to:
 -   Responsive design
 -   Sessions instead of JWT
 
-## `.env` file should look like this
+## Setup
 
-```conf
-CLIENT_ID=<your Spotify App client ID>
-CLIENT_SECRET=<your Spotify App client secret>
-BASE_URL=<your Spotify redirect uri>
-JWT_SECRET=<your JWT Secret>
-PORT=<preferred port>
-```
+1. Create a Spotify Application
+1. Copy `.env.example` to `.env` and fill in the missing values
+1. Add the redirect uris to your Spotify Application
+

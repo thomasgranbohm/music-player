@@ -4,3 +4,7 @@
 	grid-template-columns: repeat(auto-fill, 12rem);
 	grid-auto-rows: auto;
 }
+
+.title {
+	text-transform: capitalize;
+}
