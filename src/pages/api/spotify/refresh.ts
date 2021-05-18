@@ -4,9 +4,9 @@ import { makeSpotifyRequest } from "../../../lib/spotify";
 import qs from "querystring";
 
 const RefreshToken = withSession(async (req, res) => {
-	const cookie = req.session.get("cookie");
+	console.log(req.cookies, "cookies");
 
-	console.log(cookie, req.session);
+	const cookie = req.session.get("user-data");
 
 	try {
 		const resp = await axios({
@@ -26,7 +26,7 @@ const RefreshToken = withSession(async (req, res) => {
 
 		console.log("New access token:", resp.data["access_token"]);
 
-		req.session.set("cookie", {
+		req.session.set("user-data", {
 			...cookie,
 			access_token: resp.data["access_token"],
 		});

@@ -1,16 +1,10 @@
-import axios from "axios";
 import withSession from "../../../lib/session";
 import { makeSpotifyRequest } from "../../../lib/spotify";
 
 const Playlist = withSession(async (req, res) => {
-	const cookie = req.session.get("cookie");
+	const cookie = await req.session.get("user-data");
 
-	console.log(cookie);
-
-	const data = await makeSpotifyRequest(
-		"https://api.spotify.com/v1/me/playlists",
-		cookie
-	);
+	const data = await makeSpotifyRequest("/me/playlists", cookie);
 
 	return res.json({ ...data });
 });

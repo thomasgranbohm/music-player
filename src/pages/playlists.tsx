@@ -1,9 +1,13 @@
 import axios from "axios";
+import { useEffect } from "react";
+import useSWR from "swr";
+import Blurb from "../components/Blurb/Blurb";
+import BlurbListing from "../components/BlurbListing/BlurbListing";
+import Loading from "../components/Loading/Loading";
 import withSession from "../lib/session";
-import { makeSpotifyRequest } from "../lib/spotify";
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
-	const cookie = await req.session.get("cookie");
+	const cookie = await req.session.get("user-data");
 
 	if (!cookie) {
 		return {
@@ -13,22 +17,26 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 		};
 	}
 
-	const data = await axios.get("http://localhost:3000/api/spotify/playlist");
-
 	return {
-		props: {
-			data,
-		},
+		props: {},
 	};
 });
 
-const Playlists = (props) => {
+const Playlists = () => {
+	const { data, error } = useSWR("/api/spotify/playlist");
+
+	if (error) return <h1>error</h1>;
+	// if (!data) return <h1>loading...</h1>;
+
 	return (
-		<div className="playlists">
-			<pre>
-				<code>{JSON.stringify(props, null, 4)}</code>
-			</pre>
-		</div>
+		<Loading isLoading={!data}>
+			<BlurbListing title="playlists">
+				{data?.items &&
+					data.items.map((item) => (
+						<Blurb type="playlist" {...item} />
+					))}
+			</BlurbListing>
+		</Loading>
 	);
 };
 

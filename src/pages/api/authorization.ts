@@ -26,7 +26,7 @@ const Authorization = withSession(async (req, res) => {
 		},
 	});
 
-	req.session.set("cookie", { ...resp.data });
+	req.session.set("user-data", { ...resp.data });
 	await req.session.save();
 
 	return res.redirect("/");

@@ -26,6 +26,7 @@ body {
         sans-serif; */
 	font-size: 14px;
 }
+
 .dark {
 	--color: #ddd;
 	--background-color: #202020;

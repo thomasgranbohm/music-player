@@ -3,7 +3,7 @@ import useSWR from "swr";
 import withSession from "../lib/session";
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
-	const cookie = req.session.get("cookie");
+	const cookie = req.session.get("user-data");
 
 	if (!cookie) {
 		return {
@@ -14,14 +14,12 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 	}
 
 	return {
-		props: {
-			cookie,
-		},
+		props: {},
 	};
 });
 
-const Home = ({ cookie }) => {
-	const { data, error } = useSWR("/api/spotify/playlist");
+const Home = ({}) => {
+	const { data } = useSWR("/api/spotify/playlist");
 
 	return (
 		<div className={styles.container}>
