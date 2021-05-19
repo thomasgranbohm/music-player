@@ -1,39 +1,37 @@
+@import "../../styles/variables.scss";
+
 .blurb {
-	max-width: 12rem;
-	width: 100%;
-	padding: 0 1rem;
+	width: 12em;
+	padding: 0 1em;
 
 	background-color: var(--alt-background-color);
 
 	&,
 	.cover {
-		border-radius: 0.25rem;
+		border-radius: 0.25em;
 	}
 
 	&.podcast {
-		border-radius: 0.5rem;
+		border-radius: 0.5em;
 	}
 
 	.cover {
-		width: 10rem;
-		height: 10rem;
+		width: 10em;
+		height: 10em;
 		object-fit: cover;
-		// margin: 1rem 0;
 		display: block;
 	}
 
 	.cover,
 	.title,
 	.sub-title {
-		margin: 1rem 0;
+		margin: 1em 0;
 	}
 
 	.title,
 	.sub-title {
-		overflow-y: visible;
 		overflow-x: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		line-height: 1.2;
 	}
 }

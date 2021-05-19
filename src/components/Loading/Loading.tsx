@@ -6,7 +6,7 @@ type LoadingProps = {
 };
 
 const Loading: FC<LoadingProps> = ({ children, isLoading }) => {
-	return <div>{!isLoading ? children : <h2>loading...</h2>}</div>;
+	return <>{!isLoading ? children : <h2>loading...</h2>}</>;
 };
 
 export default Loading;
