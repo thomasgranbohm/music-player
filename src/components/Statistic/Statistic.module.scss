@@ -1,0 +1,17 @@
+.item {
+	width: 100%;
+	padding: 0.25em 0;
+	padding-inline-start: 1em;
+	// &::before {
+	// 	content: counter(statisticCounter);
+	// 	display: inline;
+	// }
+
+	.title,
+	.artists {
+		overflow-x: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		margin: 0.5em 0;
+	}
+}

@@ -10,7 +10,7 @@
 	gap: var(--gap);
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
-	@include desktop {
+	@include tablet-and-up {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, 12em);
 		grid-auto-rows: auto;
