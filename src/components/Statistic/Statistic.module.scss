@@ -1,17 +1,72 @@
 .item {
-	width: 100%;
-	padding: 0.25em 0;
-	padding-inline-start: 1em;
-	// &::before {
-	// 	content: counter(statisticCounter);
-	// 	display: inline;
-	// }
+	width: 18rem;
+	height: 4rem;
+	position: relative;
+	overflow: hidden;
 
-	.title,
-	.artists {
-		overflow-x: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		margin: 0.5em 0;
+	transition: height 0.2s;
+
+	counter-increment: statistics;
+
+	&.clicked {
+		height: 22rem;
+		
+		.info {
+			background-color: var(--spotify-green);
+			color: var(--background-color);
+		}
+	}
+
+	.cover {
+		height: 18rem;
+		width: 100%;
+
+		position: absolute;
+		top: 0;
+
+		z-index: 1;
+
+		object-fit: cover;
+	}
+
+	.info:hover {
+		cursor: pointer;
+	}
+
+	&:not(.clicked) .info:hover {
+		background-color: var(--alt-background-color);
+	}
+
+	.info {
+		padding-inline-start: calc(2.5 * var(--gap));
+		background-color: var(--background-color);
+		z-index: 3;
+
+		height: 4rem;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+
+		.title::before {
+			content: counter(statistics) ".";
+			display: inline-block;
+			position: absolute;
+			right: calc(100% - var(--gap) * 2);
+			text-align: end;
+		}
+
+		.title,
+		.artists {
+			width: 100%;
+			overflow-x: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			margin: 0.25em 0;
+		}
 	}
 }

@@ -28,6 +28,7 @@ const Home = ({}) => {
 			<h1>Test</h1>
 			<Link href="/albums">Albums</Link>
 			<Link href="/playlists">Playlists</Link>
+			<Link href="/statistics">Statistics</Link>
 			<pre>
 				<code>{JSON.stringify(data, null, 4)}</code>
 			</pre>

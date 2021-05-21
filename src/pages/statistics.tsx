@@ -18,13 +18,21 @@ export const getServerSideProps: GetServerSideProps = withSession(
 			};
 		}
 
-		const usedRange = ALLOWED_RANGES.includes(query)
-			? query
+		const { range } = query;
+
+		const usedRange = ALLOWED_RANGES.includes(range)
+			? range
 			: "medium_term";
 
 		const [artists, tracks] = await Promise.all([
-			makeSpotifyRequest("/me/top/artists", cookie),
-			makeSpotifyRequest("/me/top/tracks", cookie),
+			makeSpotifyRequest(
+				`/me/top/artists?time_range=${usedRange}`,
+				cookie
+			),
+			makeSpotifyRequest(
+				`/me/top/tracks?time_range=${usedRange}`,
+				cookie
+			),
 		]);
 
 		return {
@@ -37,31 +45,22 @@ export const getServerSideProps: GetServerSideProps = withSession(
 	}
 );
 
-const Statistics = ({ artists, range, tracks }) => (
-	<div>
+const Statistics = ({ artists, tracks }) => (
+	<>
 		<h1>Statistics</h1>
-		<StatisticListing title="Artists">
-			{artists.items.map(({ images, name }) => (
-				<Statistic
-					images={images}
-					type="artist"
-					title={name}
-					key={name}
-				/>
-			))}
-		</StatisticListing>
-		<StatisticListing title="Tracks">
-			{tracks.items.map(({ images, name, artists }) => (
-				<Statistic
-					images={images}
-					type="track"
-					title={name}
-					artists={artists}
-					key={name}
-				/>
-			))}
-		</StatisticListing>
-	</div>
+		<div>
+			<StatisticListing
+				title="Artists"
+				items={artists.items}
+				type="artist"
+			/>
+			<StatisticListing
+				title="Tracks"
+				items={tracks.items}
+				type="track"
+			/>
+		</div>
+	</>
 );
 
 export default Statistics;
