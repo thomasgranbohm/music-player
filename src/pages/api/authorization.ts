@@ -15,7 +15,7 @@ const Authorization = withSession(async (req, res) => {
 			code,
 			grant_type: "authorization_code",
 			redirect_uri:
-				"http://localhost:3000" +
+				process.env.BASE_URL +
 				process.env.NEXT_PUBLIC_AUTHORIZATION_REDIRECT_URI,
 		}),
 		headers: {

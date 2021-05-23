@@ -59,7 +59,7 @@ const Statistic = ({
 					<p className={classes["artists"]}>
 						{props["artists"]
 							.map((artist) => artist.name)
-							.join(" ")}
+							.join(", ")}
 					</p>
 				)}
 			</li>

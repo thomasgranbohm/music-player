@@ -7,9 +7,9 @@ const Login = () => {
 			<a
 				href={`https://accounts.spotify.com/authorize?response_type=code&client_id=${
 					process.env.NEXT_PUBLIC_CLIENT_ID
-				}&scope=${encodeURIComponent(
-					SCOPES
-				)}&redirect_uri=http://localhost:3000${encodeURIComponent(
+				}&scope=${encodeURIComponent(SCOPES)}&redirect_uri=${
+					process.env.NEXT_PUBLIC_BASE_URL
+				}${encodeURIComponent(
 					process.env.NEXT_PUBLIC_AUTHORIZATION_REDIRECT_URI
 				)}`}
 			>

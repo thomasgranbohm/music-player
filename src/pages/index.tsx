@@ -2,7 +2,7 @@ import styles from "../styles/Home.module.css";
 import useSWR from "swr";
 import withSession from "../lib/session";
 
-import Link from "next/link";
+import Link from "../components/Link/Link";
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
 	const cookie = req.session.get("user-data");
@@ -29,9 +29,6 @@ const Home = ({}) => {
 			<Link href="/albums">Albums</Link>
 			<Link href="/playlists">Playlists</Link>
 			<Link href="/statistics">Statistics</Link>
-			<pre>
-				<code>{JSON.stringify(data, null, 4)}</code>
-			</pre>
 		</div>
 	);
 };
