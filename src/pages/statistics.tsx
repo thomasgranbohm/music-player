@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
-import Statistic from "../components/Statistic/Statistic";
 import StatisticListing from "../components/StatisticListing/StatisticListing";
 import withSession from "../lib/session";
 import { makeSpotifyRequest } from "../lib/spotify";
+import classes from "../styles/Statistics.module.scss";
 
 const ALLOWED_RANGES = ["short_term", "medium_term", "long_term"];
 
@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = withSession(
 const Statistics = ({ artists, tracks }) => (
 	<>
 		<h1>Statistics</h1>
-		<div>
+		<div className={classes["listings"]}>
 			<StatisticListing
 				title="Artists"
 				items={artists.items}

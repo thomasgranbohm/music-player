@@ -1,11 +1,15 @@
+import { useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import { AlbumBlurb } from "../components/Blurb/Blurb";
 import BlurbListing from "../components/BlurbListing/BlurbListing";
 import Loading from "../components/Loading/Loading";
+import { nextInstance } from "../lib/api";
+import useObserver from "../lib/observer";
 import withSession from "../lib/session";
+import { getAlbums } from "../lib/spotify";
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
-	const cookie = await req.session.get("user-data");
+export const getServerSideProps = withSession(async ({ req }) => {
+	const cookie = req.session.get("user-data");
 
 	if (!cookie) {
 		return {
@@ -15,27 +19,43 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 		};
 	}
 
+	const resp = await getAlbums(cookie);
+
 	return {
-		props: {},
+		props: {
+			info: resp,
+		},
 	};
 });
 
-const Playlists = () => {
-	const { data, error } = useSWR("/api/spotify/albums");
+const Albums = ({ info }) => {
+	const { items, total } = info;
 
-	if (error) return <h1>error</h1>;
-	// if (!data) return <h1>loading...</h1>;
+	const [albums, setAlbums] = useState(items || []);
+	const [observer] = useObserver(
+		async () => {
+			const { data } = await nextInstance(
+				`/spotify/albums?offset=${albums.length}`
+			);
+
+			setAlbums([...albums, ...data.items]);
+		},
+		{
+			threshold: 0.5,
+			condition: total === albums.length,
+		}
+	);
 
 	return (
-		<Loading isLoading={!data}>
+		<Loading isLoading={!info}>
 			<BlurbListing title="albums">
-				{data?.items &&
-					data.items.map((item) => (
-						<AlbumBlurb type="album" {...item.album} />
-					))}
+				{albums.map(({ album }) => (
+					<AlbumBlurb {...album} key={album.id} />
+				))}
 			</BlurbListing>
+			{observer}
 		</Loading>
 	);
 };
 
-export default Playlists;
+export default Albums;

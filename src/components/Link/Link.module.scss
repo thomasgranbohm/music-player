@@ -1,3 +1,7 @@
 .link {
 	display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

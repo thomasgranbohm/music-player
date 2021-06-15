@@ -1,14 +1,13 @@
-import { FC } from "react";
-import Link from "next/link";
+import { AnchorHTMLAttributes, FC } from "react";
+import Link, { LinkProps } from "next/link";
 import classes from "./Link.module.scss";
 
-type LinkProps = {
-	href: string;
+type CustomLinkProps = {
 	className?: string;
-};
+} & LinkProps;
 
-const CustomLink: FC<LinkProps> = ({ className, href, children }) => (
-	<Link href={href}>
+const CustomLink: FC<CustomLinkProps> = ({ className, href, children, ...props }) => (
+	<Link href={href} {...props}>
 		<a className={[className, classes["link"]].join(" ")}>{children}</a>
 	</Link>
 );

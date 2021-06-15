@@ -1,4 +1,35 @@
 .layout {
+	--header: 12rem;
+	--footer: 8rem;
+
 	width: 100%;
-  overflow-x: visible;
+	overflow-x: visible;
+	display: grid;
+	grid-template-areas: "header children" "header footer";
+	grid-template-columns: var(--header) 1fr;
+	grid-template-rows: 1fr var(--footer);
+
+	min-height: 100vh;
+
+	.header {
+		grid-area: header;
+		width: var(--header);
+	}
+
+	.children {
+		grid-area: children;
+		margin-bottom: 1rem;
+		padding: var(--gap);
+		overflow: auto;
+		height: 100%;
+	}
+
+	.footer {
+		grid-area: footer;
+		height: var(--footer);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

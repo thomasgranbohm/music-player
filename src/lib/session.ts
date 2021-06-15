@@ -1,11 +1,14 @@
-import { withIronSession } from "next-iron-session";
+import { NextApiRequest, NextApiResponse } from "next";
+import { Session, withIronSession } from "next-iron-session";
 
-export default function withSession(handler) {
-  return withIronSession(handler, {
-    cookieName: "music-token",
-    password: process.env.SECRET,
-    cookieOptions: {
-      secure: process.env.NODE_ENV === "production"
-    }
-  })
-}
+const withSession = (handler) =>
+	withIronSession(handler, {
+		cookieName: "music-token",
+		password: process.env.SECRET,
+		ttl: 3600,
+		cookieOptions: {
+			secure: process.env.NODE_ENV === "production",
+		},
+	});
+
+export default withSession;

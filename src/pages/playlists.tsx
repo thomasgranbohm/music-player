@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { PlaylistBlurb } from "../components/Blurb/Blurb";
 import BlurbListing from "../components/BlurbListing/BlurbListing";
 import Loading from "../components/Loading/Loading";
+import { nextInstance } from "../lib/api";
+import useObserver from "../lib/observer";
 import withSession from "../lib/session";
+import { getPlaylists } from "../lib/spotify";
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
 	const cookie = await req.session.get("user-data");
@@ -17,23 +20,42 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 		};
 	}
 
+	const resp = await getPlaylists(cookie);
+
 	return {
-		props: {},
+		props: {
+			info: resp,
+		},
 	};
 });
 
-const Playlists = () => {
-	const { data, error } = useSWR("/api/spotify/playlist");
+const Playlists = ({ info }) => {
+	const { items, total } = info;
 
-	if (error) return <h1>error</h1>;
-	// if (!data) return <h1>loading...</h1>;
+	const [playlists, setPlaylists] = useState(items);
+
+	const [observer] = useObserver(
+		async () => {
+			const { data } = await nextInstance(
+				`/spotify/playlists?offset=${playlists.length}`
+			);
+
+			setPlaylists([...playlists, ...data.items]);
+		},
+		{
+			condition: total === playlists.length,
+		}
+	);
 
 	return (
-		<Loading isLoading={!data}>
+		<Loading isLoading={!playlists}>
 			<BlurbListing title="playlists">
-				{data?.items &&
-					data.items.map((item) => <PlaylistBlurb {...item} />)}
+				{playlists &&
+					playlists.map((item) => (
+						<PlaylistBlurb {...item} key={item.id} />
+					))}
 			</BlurbListing>
+			{observer}
 		</Loading>
 	);
 };

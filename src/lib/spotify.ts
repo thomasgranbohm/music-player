@@ -26,3 +26,13 @@ export const makeSpotifyRequest = async (url, cookie) => {
 		return { error: true };
 	}
 };
+
+export const getAlbums = async (cookie, offset = 0) => {
+  const data = await makeSpotifyRequest(`/me/albums?offset=${offset}`, cookie);
+  return data;
+}
+
+export const getPlaylists = async (cookie, offset = 0) => {
+  const data = await makeSpotifyRequest(`/me/playlists?offset=${offset}`, cookie);
+  return data;
+}

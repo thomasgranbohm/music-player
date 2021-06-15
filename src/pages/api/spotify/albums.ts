@@ -1,12 +1,13 @@
 import withSession from "../../../lib/session";
-import { makeSpotifyRequest } from "../../../lib/spotify";
+import { getAlbums } from "../../../lib/spotify";
 
-const Playlist = withSession(async (req, res) => {
+const Album = withSession(async (req, res) => {
+	console.log(req.query);
 	const cookie = await req.session.get("user-data");
 
-	const data = await makeSpotifyRequest("/me/albums", cookie);
+	const data = await getAlbums(cookie, req.query.offset);
 
 	return res.json({ ...data });
 });
 
-export default Playlist;
+export default Album;

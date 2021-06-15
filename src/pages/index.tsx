@@ -1,10 +1,7 @@
-import styles from "../styles/Home.module.css";
-import useSWR from "swr";
 import withSession from "../lib/session";
+import styles from "../styles/Home.module.css";
 
-import Link from "../components/Link/Link";
-
-export const getServerSideProps = withSession(async ({ req, res }) => {
+export const getServerSideProps = withSession(async ({ req }) => {
 	const cookie = req.session.get("user-data");
 
 	if (!cookie) {
@@ -21,14 +18,9 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 });
 
 const Home = ({}) => {
-	const { data } = useSWR("/api/spotify/playlist");
-
 	return (
 		<div className={styles.container}>
-			<h1>Test</h1>
-			<Link href="/albums">Albums</Link>
-			<Link href="/playlists">Playlists</Link>
-			<Link href="/statistics">Statistics</Link>
+			<h1>Home</h1>
 		</div>
 	);
 };

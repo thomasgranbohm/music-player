@@ -2,7 +2,7 @@ import classes from "./Blurb.module.scss";
 
 type BasicProps = {
 	name: string;
-	images: [
+	images?: [
 		{
 			height: number;
 			url: string;
@@ -45,7 +45,7 @@ type BlurbProps = {
 const Blurb = ({ images, name, subtitle, type, href }: BlurbProps) => {
 	return (
 		<div className={[classes["blurb"], classes[type]].join(" ")}>
-			<img className={classes["cover"]} src={images[0].url} alt="" />
+			<img className={classes["cover"]} src={images?.[0]?.url} alt="" />
 			<p className={classes["title"]} title={name}>
 				<b>{name}</b>
 			</p>

@@ -11,8 +11,10 @@ export type ImageProps = {
 
 const Image = ({ className, images, name, size }: ImageProps) => {
 	const sizeSortedImages = images.sort(
-		(a, b) => a.width * a.height - b.width * b.height
+		(a, b) => b.width * b.height - a.width * a.height
 	);
+
+  const biggest = sizeSortedImages.slice().pop().width;
 
 	let image = undefined;
 	if (size === "large") image = sizeSortedImages.slice().pop();
@@ -26,6 +28,15 @@ const Image = ({ className, images, name, size }: ImageProps) => {
 			className={[classes["image"], className].join(" ")}
 			alt={name}
 			src={image.url}
+      srcSet={sizeSortedImages
+        .map(({ url, width }) => `${url} ${width}w`)
+        .join(", ")}
+      sizes={`${sizeSortedImages
+        .map(({ width }, i, arr) => {
+          const nextWidth = arr[i + 1]?.width || biggest;
+          return `(max-width: ${nextWidth}px) ${width}px`;
+        })
+        .join(", ")}, ${biggest}px`}
 		/>
 	);
 };

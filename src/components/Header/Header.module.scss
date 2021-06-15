@@ -1,0 +1,31 @@
+.header {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: var(--alt-background-color);
+
+	> *:not(:last-child) {
+		border-bottom: 1px solid var(--background-color);
+	}
+}
+
+.logo {
+	padding: 1rem;
+
+	img {
+		width: 100%;
+	}
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	> * {
+		padding: var(--gap);
+
+		&:hover {
+			background-color: var(--background-color);
+		}
+	}
+}
