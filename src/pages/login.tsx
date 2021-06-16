@@ -13,8 +13,14 @@ const Login = () => {
 				}${encodeURIComponent(
 					process.env.NEXT_PUBLIC_AUTHORIZATION_REDIRECT_URI
 				)}`}
+				className={classes["button"]}
 			>
-				<h2 className={classes["button"]}>Spotify Login</h2>
+				<img
+					className={classes["icon"]}
+					src="/images/Spotify_Icon_RGB_White.png"
+					alt="Spotify Icon"
+				/>
+				<h2 className={classes["title"]}>Login with Spotify</h2>
 			</a>
 		</div>
 	);
