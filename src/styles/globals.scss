@@ -13,8 +13,8 @@
 	--inverted-background-color: #191414;
 	--spotify-green: #1db954;
 
-	--spotify-logo-url: url("/images/spotify-logo-Black.png");
-	--mode-logo-url: url("/images/dark-mode.svg");
+	--spotify-logo-url: url("../../public/images/spotify-logo-Black.png");
+	--mode-logo-url: url("../../public/images/dark-mode.svg");
 
 	--gap: 1em;
 }
@@ -37,8 +37,8 @@ body {
 		--alt-background-color: #282828;
 		--inverted-background-color: #ffffff;
 
-		--spotify-logo-url: url("/images/spotify-logo-White.png");
-		--mode-logo-url: url("/images/light-mode.svg");
+		--spotify-logo-url: url("../../public/images/spotify-logo-White.png");
+		--mode-logo-url: url("../../public/images/light-mode.svg");
 	}
 }
 
@@ -48,8 +48,8 @@ body {
 	--alt-background-color: #282828;
 	--inverted-background-color: #ffffff;
 
-	--spotify-logo-url: url("/images/spotify-logo-White.png");
-	--mode-logo-url: url("/images/light-mode.svg");
+	--spotify-logo-url: url("../../public/images/spotify-logo-White.png");
+	--mode-logo-url: url("../../public/images/light-mode.svg");
 }
 
 h1,
@@ -90,27 +90,27 @@ a {
 /* Fonts */
 @font-face {
 	font-family: "CircularStd";
-	src: url("/fonts/Circular/Regular.ttf") format("truetype");
+	src: url("../../public/fonts/Circular/Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "CircularStd";
-	src: url("/fonts/Circular/RegularItalic.ttf") format("truetype");
+	src: url("../../public/fonts/Circular/RegularItalic.ttf") format("truetype");
 	font-weight: normal;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: "CircularStd";
-	src: url("/fonts/Circular/Bold.ttf") format("truetype");
+	src: url("../../public/fonts/Circular/Bold.ttf") format("truetype");
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "CircularStd";
-	src: url("/fonts/Circular/BoldItalic.ttf") format("truetype");
+	src: url("../../public/fonts/Circular/BoldItalic.ttf") format("truetype");
 	font-weight: bold;
 	font-style: italic;
 }

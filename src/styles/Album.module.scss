@@ -1,0 +1,30 @@
+.container {
+	display: grid;
+	grid-template-areas: "header" "rest";
+	grid-template-rows: 16rem 1fr;
+}
+
+.header {
+	grid-area: header;
+
+	display: grid;
+	grid-template-areas: "cover title" "cover artists";
+	grid-template-columns: 16rem 1fr;
+	gap: var(--gap);
+}
+
+.cover {
+	grid-area: cover;
+	> img {
+		height: 16rem;
+		width: 16rem;
+	}
+}
+.title {
+	grid-area: title;
+	align-self: flex-end;
+}
+.artists {
+	grid-area: artists;
+	align-self: flex-start;
+}

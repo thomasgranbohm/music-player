@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { PlaylistBlurb } from "../components/Blurb/Blurb";
-import BlurbListing from "../components/BlurbListing/BlurbListing";
-import Loading from "../components/Loading/Loading";
-import { nextInstance } from "../lib/api";
-import useObserver from "../lib/observer";
-import { getPlaylists } from "../lib/spotify";
-import { getSSP } from "../lib/ssr";
+import { PlaylistBlurb } from "components/Blurb/Blurb";
+import BlurbListing from "components/BlurbListing/BlurbListing";
+import Loading from "components/Loading/Loading";
+import { nextInstance } from "lib/api";
+import useObserver from "lib/observer";
+import { getPlaylists } from "lib/spotify";
+import { getSSP } from "lib/ssr";
 
 export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getPlaylists(cookie);

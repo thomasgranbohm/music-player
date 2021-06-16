@@ -11,8 +11,8 @@
 	--inverted-background-color: #202020;
 	--spotify-green: #1db954;
 
-	--spotify-logo-url: url("/images/spotify-logo-Black.png");
-	--mode-logo-url: url("/images/dark-mode.svg");
+	/* --spotify-logo-url: url("/images/spotify-logo-Black.png");
+	--mode-logo-url: url("/images/dark-mode.svg"); */
 
 	--nav-width: 16rem;
 	--footer-height: 6rem;
@@ -33,8 +33,8 @@ body {
 	--alt-background-color: #333;
 	--inverted-background-color: #f8f8f8;
 
-	--spotify-logo-url: url("/images/spotify-logo-White.png");
-	--mode-logo-url: url("/images/light-mode.svg");
+	/* --spotify-logo-url: url("/images/spotify-logo-White.png");
+	--mode-logo-url: url("/images/light-mode.svg"); */
 }
 
 h1,

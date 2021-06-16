@@ -1,4 +1,4 @@
-import withSession from "../lib/session";
+import withSession from "lib/session";
 
 export const getServerSideProps = withSession(async ({ req }) => {
 	const cookie = req.session.get("user-data");

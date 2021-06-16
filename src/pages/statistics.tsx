@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
-import StatisticListing from "../components/StatisticListing/StatisticListing";
-import withSession from "../lib/session";
-import { makeSpotifyRequest } from "../lib/spotify";
-import classes from "../styles/Statistics.module.scss";
+import StatisticListing from "components/StatisticListing/StatisticListing";
+import withSession from "lib/session";
+import { makeSpotifyRequest } from "lib/spotify";
+import classes from "styles/Statistics.module.scss";
 
 const ALLOWED_RANGES = ["short_term", "medium_term", "long_term"];
 

@@ -1,4 +1,4 @@
-import classes from "../styles/Login.module.scss";
+import classes from "styles/Login.module.scss";
 
 const Login = () => {
 	const SCOPES =

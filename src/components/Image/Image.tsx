@@ -1,6 +1,6 @@
 import classes from "./Image.module.scss";
 
-export type ImagesArray = [{ height: number; url: string; width: number }];
+export type ImagesArray = Array<{ height: number; url: string; width: number }>;
 
 export type ImageProps = {
 	className?: string;

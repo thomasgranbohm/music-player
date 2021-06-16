@@ -1,13 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import useSWR from "swr";
-import { AlbumBlurb } from "../components/Blurb/Blurb";
-import BlurbListing from "../components/BlurbListing/BlurbListing";
-import Loading from "../components/Loading/Loading";
-import { nextInstance } from "../lib/api";
-import useObserver from "../lib/observer";
-import withSession from "../lib/session";
-import { getAlbums } from "../lib/spotify";
-import { getSSP } from "../lib/ssr";
+import { AlbumBlurb } from "components/Blurb/Blurb";
+import BlurbListing from "components/BlurbListing/BlurbListing";
+import Loading from "components/Loading/Loading";
+import { nextInstance } from "lib/api";
+import useObserver from "lib/observer";
+import { getAlbums } from "lib/spotify";
+import { getSSP } from "lib/ssr";
+import { useState } from "react";
 
 export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getAlbums(cookie);

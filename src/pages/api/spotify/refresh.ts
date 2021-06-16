@@ -1,6 +1,6 @@
 import axios from "axios";
-import withSession from "../../../lib/session";
-import { makeSpotifyRequest } from "../../../lib/spotify";
+import withSession from "lib/session";
+import { makeSpotifyRequest } from "lib/spotify";
 import qs from "querystring";
 
 const RefreshToken = withSession(async (req, res) => {

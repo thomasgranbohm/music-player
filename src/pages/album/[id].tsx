@@ -1,6 +1,10 @@
 import { GetServerSideProps } from "next";
-import { getAlbum } from "../../lib/spotify";
-import { getSSP } from "../../lib/ssr";
+import Image from "components/Image/Image";
+import Link from "components/Link/Link";
+import { getAlbum } from "lib/spotify";
+import { getSSP } from "lib/ssr";
+
+import classes from "styles/Album.module.scss";
 
 export const getServerSideProps: GetServerSideProps = getSSP(
 	async ({ cookie, query }) => {
@@ -13,12 +17,32 @@ export const getServerSideProps: GetServerSideProps = getSSP(
 );
 
 const Album = ({ album }) => {
+	const { artists, genres, id, images, name, tracks, type } = album;
 	return (
-		<>
+		<div className={classes["container"]}>
+			<div className={classes["header"]}>
+				<Image
+					className={classes["cover"]}
+					images={images}
+					name={name}
+				/>
+				<h1 className={classes["title"]}>{name}</h1>
+				<h2 className={classes["artists"]}>
+					{artists.map(({ id: artistId, name }) => (
+						<Link href={`/artist/${artistId}`}>{name}</Link>
+					))}
+				</h2>
+			</div>
 			<pre>
-				<code>{JSON.stringify(album, null, 4)}</code>
+				<code>
+					{JSON.stringify(
+						{ artists, genres, id, images, name, type },
+						null,
+						4
+					)}
+				</code>
 			</pre>
-		</>
+		</div>
 	);
 };
 

@@ -1,5 +1,5 @@
-import withSession from "../../../lib/session";
-import { getPlaylists } from "../../../lib/spotify";
+import withSession from "lib/session";
+import { getPlaylists } from "lib/spotify";
 
 const Playlist = withSession(async (req, res) => {
 	const cookie = await req.session.get("user-data");

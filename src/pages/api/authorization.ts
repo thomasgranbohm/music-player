@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "querystring";
-import withSession from "../../lib/session";
+import withSession from "lib/session";
 
 const Authorization = withSession(async (req, res) => {
 	const { code, error, state } = req.query;
