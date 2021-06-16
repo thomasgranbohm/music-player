@@ -1,5 +1,4 @@
-import axios from "axios";
-import { nextInstance, spotifyInstance } from "./api";
+import { spotifyInstance } from "./api";
 
 export const makeSpotifyRequest = async (url, cookie) => {
 	try {
@@ -28,11 +27,28 @@ export const makeSpotifyRequest = async (url, cookie) => {
 };
 
 export const getAlbums = async (cookie, offset = 0) => {
-  const data = await makeSpotifyRequest(`/me/albums?offset=${offset}`, cookie);
-  return data;
-}
+	const data = await makeSpotifyRequest(
+		`/me/albums?offset=${offset}`,
+		cookie
+	);
+	return data;
+};
 
 export const getPlaylists = async (cookie, offset = 0) => {
-  const data = await makeSpotifyRequest(`/me/playlists?offset=${offset}`, cookie);
-  return data;
-}
+	const data = await makeSpotifyRequest(
+		`/me/playlists?offset=${offset}`,
+		cookie
+	);
+	return data;
+};
+
+export const getAlbum = async (cookie, id) => {
+	const [album, tracks] = await Promise.all([
+		makeSpotifyRequest(`/albums/${id}`, cookie),
+		makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
+	]);
+
+  album.tracks = tracks;
+
+  return album;
+};

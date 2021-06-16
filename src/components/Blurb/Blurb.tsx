@@ -1,6 +1,9 @@
 import classes from "./Blurb.module.scss";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
 
 type BasicProps = {
+	id: string;
 	name: string;
 	images?: [
 		{
@@ -34,7 +37,12 @@ type AlbumBlurbProps = {
 } & BasicProps;
 
 export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
-	<Blurb {...props} subtitle={artists[0].name} type="album" />
+	<Blurb
+		{...props}
+		subtitle={artists[0].name}
+		href={`/album/${props.id}`}
+		type="album"
+	/>
 );
 
 type BlurbProps = {
@@ -45,13 +53,23 @@ type BlurbProps = {
 const Blurb = ({ images, name, subtitle, type, href }: BlurbProps) => {
 	return (
 		<div className={[classes["blurb"], classes[type]].join(" ")}>
-			<img className={classes["cover"]} src={images?.[0]?.url} alt="" />
-			<p className={classes["title"]} title={name}>
-				<b>{name}</b>
-			</p>
-			<p className={classes["sub-title"]} title={subtitle}>
-				{subtitle}
-			</p>
+			<Link href={href}>
+				<Image
+					className={classes["cover"]}
+					images={images}
+					name={`${name} cover`}
+				/>
+			</Link>
+			<Link href={href}>
+				<p className={classes["title"]} title={name}>
+					<b>{name}</b>
+				</p>
+			</Link>
+			<Link href={"#"}>
+				<p className={classes["sub-title"]} title={subtitle}>
+					{subtitle}
+				</p>
+			</Link>
 		</div>
 	);
 };

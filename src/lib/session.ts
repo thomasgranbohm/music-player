@@ -1,7 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { Session, withIronSession } from "next-iron-session";
+import { Handler, withIronSession } from "next-iron-session";
 
-const withSession = (handler) =>
+const withSession = (handler: Handler) =>
 	withIronSession(handler, {
 		cookieName: "music-token",
 		password: process.env.SECRET,

@@ -7,18 +7,9 @@ import { nextInstance } from "../lib/api";
 import useObserver from "../lib/observer";
 import withSession from "../lib/session";
 import { getAlbums } from "../lib/spotify";
+import { getSSP } from "../lib/ssr";
 
-export const getServerSideProps = withSession(async ({ req }) => {
-	const cookie = req.session.get("user-data");
-
-	if (!cookie) {
-		return {
-			redirect: {
-				destination: "/login",
-			},
-		};
-	}
-
+export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getAlbums(cookie);
 
 	return {

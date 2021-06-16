@@ -1,25 +1,13 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
+import { useState } from "react";
 import { PlaylistBlurb } from "../components/Blurb/Blurb";
 import BlurbListing from "../components/BlurbListing/BlurbListing";
 import Loading from "../components/Loading/Loading";
 import { nextInstance } from "../lib/api";
 import useObserver from "../lib/observer";
-import withSession from "../lib/session";
 import { getPlaylists } from "../lib/spotify";
+import { getSSP } from "../lib/ssr";
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
-	const cookie = await req.session.get("user-data");
-
-	if (!cookie) {
-		return {
-			redirect: {
-				destination: "/login",
-			},
-		};
-	}
-
+export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getPlaylists(cookie);
 
 	return {
@@ -34,7 +22,7 @@ const Playlists = ({ info }) => {
 
 	const [playlists, setPlaylists] = useState(items);
 
-	const [observer] = useObserver(
+	const [sentinel] = useObserver(
 		async () => {
 			const { data } = await nextInstance(
 				`/spotify/playlists?offset=${playlists.length}`
@@ -55,7 +43,7 @@ const Playlists = ({ info }) => {
 						<PlaylistBlurb {...item} key={item.id} />
 					))}
 			</BlurbListing>
-			{observer}
+			{sentinel}
 		</Loading>
 	);
 };

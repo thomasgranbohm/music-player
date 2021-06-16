@@ -1,3 +1,8 @@
 .image {
-	object-fit: cover;
+	display: block;
+	background: var(--spotify-green);
+
+	> img {
+		object-fit: cover;
+	}
 }
