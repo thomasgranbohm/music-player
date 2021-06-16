@@ -20,6 +20,13 @@
 		height: 10em;
 		object-fit: cover;
 		display: block;
+
+		background: url("/images/Spotify_Icon_RGB_White.png")
+			var(--spotify-green);
+
+		background-size: 60%;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.cover,

@@ -1,9 +1,10 @@
+import classes from "../styles/Login.module.scss";
+
 const Login = () => {
 	const SCOPES =
 		"user-read-private user-read-email user-library-read streaming user-top-read playlist-read-private playlist-read-collaborative";
 	return (
-		<>
-			<h1>Login</h1>
+		<div className={classes["container"]}>
 			<a
 				href={`https://accounts.spotify.com/authorize?response_type=code&client_id=${
 					process.env.NEXT_PUBLIC_CLIENT_ID
@@ -13,9 +14,9 @@ const Login = () => {
 					process.env.NEXT_PUBLIC_AUTHORIZATION_REDIRECT_URI
 				)}`}
 			>
-				Spotify
+				<h2 className={classes["button"]}>Spotify Login</h2>
 			</a>
-		</>
+		</div>
 	);
 };
 

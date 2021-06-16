@@ -15,11 +15,12 @@ const StatisticListing = ({ items, title, type }: StatisticListingProps) => {
 		<div className={classes["container"]}>
 			<h2>{title}</h2>
 			<ul className="items">
-				{items.map(({ images, name, album, artists }, i) => {
+				{items.map(({ id, images, name, album, artists }, i) => {
 					const statisticProps = {
 						clicked: clickedIndex === i,
-						key: name,
-						onClick: () => setClickedIndex(clickedIndex !== i ? i : undefined),
+						key: id,
+						onClick: () =>
+							setClickedIndex(clickedIndex !== i ? i : undefined),
 						title: name,
 					};
 
