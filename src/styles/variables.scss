@@ -1,5 +1,25 @@
-@mixin tablet-and-up {
-	@media only screen and (min-width: 600px) {
-		@content;
-	}
-}
+$light-color: #282828;
+$light-background: #ffffff;
+$light-alt-background: #dddddd;
+$light-inverted-background: #191414;
+
+$dark-color: #ddd;
+$dark-background: #191414;
+$dark-alt-background: #282828;
+$dark-inverted-background: #ffffff;
+
+$spotify-green: #1db954;
+
+$light-spotify-logo: url("../../public/images/spotify-logo-Black.png");
+$light-mode-logo: url("../../public/images/dark-mode.svg");
+$dark-spotify-logo: url("../../public/images/spotify-logo-White.png");
+$dark-mode-logo: url("../../public/images/light-mode.svg");
+
+$gap-amount: 1rem;
+
+$color: var(--color);
+$background: var(--background);
+$alt-background: var(--alt-background);
+$inverted-background: var(--inverted-background);
+$green: var(--green);
+$gap: var(--gap);

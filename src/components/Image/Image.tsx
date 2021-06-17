@@ -4,7 +4,7 @@ export type ImagesArray = Array<{ height: number; url: string; width: number }>;
 
 export type ImageProps = {
 	className?: string;
-	images: [{ height: number; url: string; width: number }];
+	images: ImagesArray;
 	name: string;
 	size?: "large" | "medium" | "small";
 };

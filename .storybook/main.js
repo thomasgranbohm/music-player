@@ -10,7 +10,7 @@ module.exports = {
 	webpackFinal: async (baseConfig, { srcFolder }) => {
 		const { module = {} } = baseConfig;
 
-		const src = srcFolder || __dirname + "/../src/";
+		const src = srcFolder || path.resolve(__dirname, "../src/");
 
 		const config = {
 			...baseConfig,

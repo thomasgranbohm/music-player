@@ -5,6 +5,7 @@ import { getAlbum } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 
 import classes from "styles/Album.module.scss";
+import Cover from "../../components/Cover/Cover";
 
 export const getServerSideProps: GetServerSideProps = getSSP(
 	async ({ cookie, query }) => {
@@ -20,7 +21,13 @@ const Album = ({ album }) => {
 	const { artists, genres, id, images, name, tracks, type } = album;
 	return (
 		<div className={classes["container"]}>
-			<div className={classes["header"]}>
+			<Cover
+				className={classes["header"]}
+				images={images}
+				name={name}
+				artists={artists}
+			/>
+			{/* <div className={classes["header"]}>
 				<Image
 					className={classes["cover"]}
 					images={images}
@@ -32,7 +39,7 @@ const Album = ({ album }) => {
 						<Link href={`/artist/${artistId}`}>{name}</Link>
 					))}
 				</h2>
-			</div>
+			</div> */}
 			<pre>
 				<code>
 					{JSON.stringify(

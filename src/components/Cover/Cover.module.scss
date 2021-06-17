@@ -1,10 +1,14 @@
+@import "styles/includes";
+
 .header {
 	grid-area: header;
 
 	display: grid;
-	grid-template-areas: "cover title" "cover artists";
+	grid-template-areas: "cover text";
 	grid-template-columns: 16rem 1fr;
-	gap: var(--gap);
+	gap: $gap;
+
+	margin-block-end: $gap;
 }
 
 .cover {
@@ -14,11 +18,14 @@
 		width: 16rem;
 	}
 }
-.title {
-	grid-area: title;
-	align-self: flex-end;
-}
-.artists {
-	grid-area: artists;
-	align-self: flex-start;
+
+.text {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	.title,
+	.artists {
+		margin: 0;
+	}
 }

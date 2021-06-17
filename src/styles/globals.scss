@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "./includes.scss";
 
 * {
 	margin: 0;
@@ -6,50 +6,54 @@
 	box-sizing: border-box;
 }
 
+@mixin lightmode {
+	--color: #{$light-color};
+	--background: #{$light-background};
+	--alt-background: #{$light-alt-background};
+	--inverted-background: #{$light-inverted-background};
+
+	--spotify-logo: #{$light-spotify-logo};
+	--mode-logo: #{$light-mode-logo};
+}
+
+@mixin darkmode {
+	--color: #{$dark-color};
+	--background: #{$dark-background};
+	--alt-background: #{$dark-alt-background};
+	--inverted-background: #{$dark-inverted-background};
+
+	--spotify-logo: #{$dark-spotify-logo};
+	--mode-logo: #{$dark-mode-logo};
+}
+
 :root {
-	--color: #282828;
-	--background-color: #ffffff;
-	--alt-background-color: #dddddd;
-	--inverted-background-color: #191414;
-	--spotify-green: #1db954;
+	--green: #{$spotify-green};
+	--gap: #{$gap-amount};
 
-	--spotify-logo-url: url("../../public/images/spotify-logo-Black.png");
-	--mode-logo-url: url("../../public/images/dark-mode.svg");
+	@include lightmode();
 
-	--gap: 1em;
+	@media (prefers-color-scheme: dark) {
+		@include lightmode();
+	}
+
+	@media (prefers-color-scheme: dark) {
+		@include darkmode();
+	}
+}
+
+.dark {
+	@include darkmode();
 }
 
 body {
 	font-size: 14px;
 	font-family: "CircularStd";
-	background: var(--background-color);
-	color: var(--color);
+	background: $background;
+	color: $color;
 
 	width: 100vw;
 
 	overflow-x: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color: #ddd;
-		--background-color: #191414;
-		--alt-background-color: #282828;
-		--inverted-background-color: #ffffff;
-
-		--spotify-logo-url: url("../../public/images/spotify-logo-White.png");
-		--mode-logo-url: url("../../public/images/light-mode.svg");
-	}
-}
-
-.dark {
-	--color: #ddd;
-	--background-color: #191414;
-	--alt-background-color: #282828;
-	--inverted-background-color: #ffffff;
-
-	--spotify-logo-url: url("../../public/images/spotify-logo-White.png");
-	--mode-logo-url: url("../../public/images/light-mode.svg");
 }
 
 h1,

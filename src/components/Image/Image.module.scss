@@ -1,9 +1,11 @@
+@import "styles/includes.scss";
+
 .image {
 	display: block;
-	background: var(--spotify-green);
+	background: $green;
 
 	> img {
 		object-fit: cover;
-    display: block;
+		display: block;
 	}
 }

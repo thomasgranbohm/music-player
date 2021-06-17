@@ -1,0 +1,15 @@
+.list {
+	display: flex;
+	list-style: none;
+}
+
+.item {
+	margin-inline-end: 0.5rem;
+
+	&:not(:last-child) {
+		a::after {
+			display: inline-block;
+			content: ", ";
+		}
+	}
+}

@@ -1,3 +1,5 @@
+@import "styles/includes";
+
 .layout {
 	--header: 12rem;
 	--footer: 8rem;
@@ -19,7 +21,7 @@
 	.children {
 		grid-area: children;
 		margin-bottom: 1rem;
-		padding: var(--gap);
+		padding: $gap;
 		overflow: auto;
 		height: 100%;
 	}

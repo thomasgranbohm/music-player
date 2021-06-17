@@ -4,7 +4,7 @@
 	width: 12em;
 	padding: 0 1em;
 
-	background-color: var(--alt-background-color);
+	background-color: $alt-background;
 
 	&,
 	.cover {
@@ -40,7 +40,7 @@
 
 	&:hover {
 		.cover::after {
-			box-shadow: 0px 0px 16px 2px var(--background-color) inset;
+			box-shadow: 0px 0px 16px 2px $background inset;
 		}
 	}
 	.cover,

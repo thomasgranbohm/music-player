@@ -1,3 +1,5 @@
+@import "styles/includes";
+
 .container {
 	width: 100%;
 	height: 100%;
@@ -10,13 +12,13 @@
 .button {
 	display: flex;
 	align-items: center;
-  flex-direction: row-reverse;
+	flex-direction: row-reverse;
 
-	padding: var(--gap);
+	padding: $gap;
 
-	background-color: var(--spotify-green);
-	border-radius: calc(var(--gap) / 2);
-	color: var(--background-color);
+	background-color: $green;
+	border-radius: calc(#{$gap} / 2);
+	color: $background;
 
 	transition: box-shadow 0.2s;
 	box-shadow: 0px 1px 2px 0px #000000;
@@ -32,6 +34,6 @@
 }
 
 .title {
-	color: var(--background-color);
+	color: $background;
 	margin: 0;
 }

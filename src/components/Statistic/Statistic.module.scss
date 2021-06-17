@@ -1,3 +1,5 @@
+@import "styles/includes.scss";
+
 .item {
 	width: 18rem;
 	height: 4rem;
@@ -10,16 +12,19 @@
 
 	&.clicked {
 		height: 22rem;
-		
+
 		.info {
-			background-color: var(--spotify-green);
-			color: var(--background-color);
+			background-color: $green;
+			color: $background;
 		}
 	}
 
 	.cover {
-		height: 18rem;
-		width: 100%;
+		&,
+		& > img {
+			height: 18rem;
+			width: 100%;
+		}
 
 		position: absolute;
 		top: 0;
@@ -34,12 +39,12 @@
 	}
 
 	&:not(.clicked) .info:hover {
-		background-color: var(--alt-background-color);
+		background-color: $alt-background;
 	}
 
 	.info {
-		padding-inline-start: calc(2.5 * var(--gap));
-		background-color: var(--background-color);
+		padding-inline-start: calc(2.5 * #{$gap});
+		background-color: $background;
 		z-index: 3;
 
 		height: 4rem;
@@ -56,7 +61,7 @@
 			content: counter(statistics) ".";
 			display: inline-block;
 			position: absolute;
-			right: calc(100% - var(--gap) * 2);
+			right: calc(100% - #{$gap} * 2);
 			text-align: end;
 		}
 
