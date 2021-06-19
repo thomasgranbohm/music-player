@@ -13,13 +13,18 @@ const LinkListing = ({
 	surroundingElement,
 	className,
 }: LinkListingProps) => (
-	<ul className={[classes["list"], className ? className : ""].join(" ")}>
+	<p className={[classes["list"], className ? className : ""].join(" ")}>
 		{links.map(({ key, link, title }, i) => (
-			<li key={"LinkListing" + i + key} className={classes["item"]}>
-				<Link href={link}>{title}</Link>
-			</li>
+			<Link
+				className={classes["item"]}
+				key={"LinkListing" + i + key}
+				href={link}
+				title={title}
+			>
+				{title}
+			</Link>
 		))}
-	</ul>
+	</p>
 );
 
 export default LinkListing;

@@ -1,8 +1,10 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler } from "react";
 import Image, { ImagesArray } from "../Image/Image";
+import LinkListing from "../LinkListing/LinkListing";
 import classes from "./Statistic.module.scss";
 
 type ArtistProps = {
+	href: string;
 	id: string;
 	name: string;
 };
@@ -56,11 +58,19 @@ const Statistic = ({
 					<b>{title}</b>
 				</p>
 				{type === "track" && (
-					<p className={classes["artists"]}>
-						{props["artists"]
-							.map((artist) => artist.name)
-							.join(", ")}
-					</p>
+					<LinkListing
+						className={classes["artists"]}
+						links={props["artists"].map(({ id, href, name }) => ({
+							key: id,
+							link: href,
+							title: name,
+						}))}
+					/>
+					// <p className={classes["artists"]}>
+					// 	{props["artists"]
+					// 		.map((artist) => artist.name)
+					// 		.join(", ")}
+					// </p>
 				)}
 			</li>
 		</div>

@@ -1,13 +1,16 @@
+@import "styles/includes";
+
 .list {
-	display: flex;
 	list-style: none;
+
+	@include no-text-overflow();
 }
 
 .item {
-	margin-inline-end: 0.5rem;
-
+	display: inline;
 	&:not(:last-child) {
-		a::after {
+		margin-inline-end: 0.5rem;
+		&::after {
 			display: inline-block;
 			content: ", ";
 		}

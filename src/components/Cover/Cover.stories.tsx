@@ -39,7 +39,9 @@ const props = {
 	name: "CARE FOR ME",
 };
 
-export const Default = () => <Cover artists={props.artists} images={props.images} name={props.name}  />;
+export const Default = () => (
+	<Cover artists={props.artists} images={props.images} name={props.name} />
+);
 
 export default {
 	title: "Components/Cover",

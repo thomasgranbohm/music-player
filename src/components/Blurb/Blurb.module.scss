@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import "styles/includes.scss";
 
 .blurb {
 	width: 12em;
@@ -36,13 +36,11 @@
 
 			transition: box-shadow 0.2s;
 		}
-	}
-
-	&:hover {
-		.cover::after {
+		&:hover::after {
 			box-shadow: 0px 0px 16px 2px $background inset;
 		}
 	}
+
 	.cover,
 	.title,
 	.sub-title {
@@ -51,8 +49,6 @@
 
 	.title,
 	.sub-title {
-		overflow-x: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+		@include no-text-overflow();
 	}
 }

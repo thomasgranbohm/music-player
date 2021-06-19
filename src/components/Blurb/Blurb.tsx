@@ -1,6 +1,8 @@
-import classes from "./Blurb.module.scss";
+import { ReactNode } from "react";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
+import LinkListing from "../LinkListing/LinkListing";
+import classes from "./Blurb.module.scss";
 
 type BasicProps = {
 	id: string;
@@ -28,6 +30,8 @@ export const PlaylistBlurb = ({ owner, ...props }: PlaylistBlurbProps) => (
 type AlbumBlurbProps = {
 	artists: [
 		{
+			id: string;
+			href: string;
 			name: string;
 			external_urls: {
 				spotify: string;
@@ -39,14 +43,22 @@ type AlbumBlurbProps = {
 export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
 	<Blurb
 		{...props}
-		subtitle={artists[0].name}
+		subtitle={
+			<LinkListing
+				links={artists.map(({ id, href, name }) => ({
+					key: id,
+					link: href,
+					title: name,
+				}))}
+			/>
+		}
 		href={`/album/${props.id}`}
 		type="album"
 	/>
 );
 
 type BlurbProps = {
-	subtitle: string;
+	subtitle: string | ReactNode;
 	type: "playlist" | "album";
 } & BasicProps;
 
@@ -65,11 +77,7 @@ const Blurb = ({ images, name, subtitle, type, href }: BlurbProps) => {
 					<b>{name}</b>
 				</p>
 			</Link>
-			<Link href={"#"}>
-				<p className={classes["sub-title"]} title={subtitle}>
-					{subtitle}
-				</p>
-			</Link>
+			<div className={classes["sub-title"]}>{subtitle}</div>
 		</div>
 	);
 };
