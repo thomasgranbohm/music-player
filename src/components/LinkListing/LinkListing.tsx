@@ -1,5 +1,4 @@
-import { HTMLAttributes } from "react";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import Link from "../Link/Link";
 import classes from "./LinkListing.module.scss";
 
@@ -12,19 +11,21 @@ const LinkListing = ({
 	links,
 	surroundingElement,
 	className,
-}: LinkListingProps) => (
-	<p className={[classes["list"], className ? className : ""].join(" ")}>
-		{links.map(({ key, link, title }, i) => (
-			<Link
-				className={classes["item"]}
-				key={"LinkListing" + i + key}
-				href={link}
-				title={title}
-			>
-				{title}
-			</Link>
-		))}
-	</p>
-);
+}: LinkListingProps) => {
+	return (
+		<p className={[classes["list"], className ? className : ""].join(" ")}>
+			{links.map(({ key, link, title }, i) => (
+				<Link
+					className={classes["item"]}
+					key={"LinkListing" + i + key}
+					href={link}
+					title={title}
+				>
+					{title}
+				</Link>
+			))}
+		</p>
+	);
+};
 
 export default LinkListing;

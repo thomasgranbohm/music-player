@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useEffect, useRef } from "react";
+import classes from "styles/observer.module.scss";
 
 const useObserver = (
 	callback: () => {},
@@ -7,19 +9,22 @@ const useObserver = (
 	} & IntersectionObserverInit
 ) => {
 	const ref = useRef(null);
+	const [loading, setLoading] = useState(false);
 
 	const { condition, ...rest } = options;
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			async ([entry]) => {
-				if (!entry.isIntersecting || condition) return;
+				if (!entry.isIntersecting || condition || loading) return;
 
+				setLoading(true);
 				await callback();
+				setLoading(false);
 			},
 			{
 				root: null,
-				rootMargin: "0px",
+				rootMargin: "256px",
 				threshold: 0.0,
 				...rest,
 			}
@@ -34,13 +39,13 @@ const useObserver = (
 		};
 	});
 
-	const observer = !condition && (
-		<div ref={ref} className="observer">
+	const sentinel = !condition && (
+		<div ref={ref} className={classes["sentinel"]}>
 			Loading...
 		</div>
 	);
 
-	return [observer];
+	return sentinel;
 };
 
 export default useObserver;

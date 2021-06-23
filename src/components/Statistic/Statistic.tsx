@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import Image, { ImagesArray } from "../Image/Image";
+import Link from "../Link/Link";
 import LinkListing from "../LinkListing/LinkListing";
 import classes from "./Statistic.module.scss";
 
@@ -24,6 +25,7 @@ export type StatisticProps = {
 	| {
 			images: ImagesArray;
 			type: "artist";
+			id: string;
 	  }
 );
 
@@ -54,23 +56,26 @@ const Statistic = ({
 				size="medium"
 			/>
 			<li className={classes["info"]}>
-				<p className={classes["title"]}>
-					<b>{title}</b>
-				</p>
+				{type === "artist" ? (
+					<Link href={`/artist/${props["id"]}`}>
+						<p className={classes["title"]}>
+							<b>{title}</b>
+						</p>
+					</Link>
+				) : (
+					<p className={classes["title"]}>
+						<b>{title}</b>
+					</p>
+				)}
 				{type === "track" && (
 					<LinkListing
 						className={classes["artists"]}
 						links={props["artists"].map(({ id, href, name }) => ({
 							key: id,
-							link: href,
+							link: `/artist/${id}`,
 							title: name,
 						}))}
 					/>
-					// <p className={classes["artists"]}>
-					// 	{props["artists"]
-					// 		.map((artist) => artist.name)
-					// 		.join(", ")}
-					// </p>
 				)}
 			</li>
 		</div>

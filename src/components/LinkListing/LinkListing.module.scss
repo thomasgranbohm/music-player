@@ -4,15 +4,17 @@
 	list-style: none;
 
 	@include no-text-overflow();
+
+	transition: margin-left 0.2s;
 }
 
 .item {
 	display: inline;
 	&:not(:last-child) {
-		margin-inline-end: 0.5rem;
 		&::after {
 			display: inline-block;
 			content: ", ";
+			white-space: pre;
 		}
 	}
 }

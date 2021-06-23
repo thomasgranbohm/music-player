@@ -42,13 +42,35 @@ export const getPlaylists = async (cookie, offset = 0) => {
 	return data;
 };
 
+export const getArtistsStatstics = async (
+	cookie,
+	{ offset = 0, range = "medium_term" }
+) => {
+	const data = await makeSpotifyRequest(
+		`/me/top/artists?time_range=${range}&offset=${offset}&limit=25`,
+		cookie
+	);
+	return data;
+};
+
+export const getTracksStatistics = async (
+	cookie,
+	{ offset = 0, range = "medium_term" }
+) => {
+	const data = makeSpotifyRequest(
+		`/me/top/tracks?time_range=${range}&offset=${offset}&limit=25`,
+		cookie
+	);
+	return data;
+};
+
 export const getAlbum = async (cookie, id) => {
 	const [album, tracks] = await Promise.all([
 		makeSpotifyRequest(`/albums/${id}`, cookie),
 		makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
 	]);
 
-  album.tracks = tracks;
+	album.tracks = tracks;
 
-  return album;
+	return album;
 };

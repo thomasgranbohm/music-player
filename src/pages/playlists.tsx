@@ -22,7 +22,7 @@ const Playlists = ({ info }) => {
 
 	const [playlists, setPlaylists] = useState(items);
 
-	const [sentinel] = useObserver(
+	const sentinel = useObserver(
 		async () => {
 			const { data } = await nextInstance(
 				`/spotify/playlists?offset=${playlists.length}`

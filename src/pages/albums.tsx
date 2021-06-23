@@ -21,7 +21,7 @@ const Albums = ({ info }) => {
 	const { items, total } = info;
 
 	const [albums, setAlbums] = useState(items || []);
-	const [observer] = useObserver(
+	const sentinel = useObserver(
 		async () => {
 			const { data } = await nextInstance(
 				`/spotify/albums?offset=${albums.length}`
@@ -42,7 +42,7 @@ const Albums = ({ info }) => {
 					<AlbumBlurb {...album} key={album.id} />
 				))}
 			</BlurbListing>
-			{observer}
+			{sentinel}
 		</Loading>
 	);
 };
