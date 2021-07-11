@@ -70,7 +70,7 @@ export const getAlbum = async (cookie, id) => {
 		makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
 	]);
 
-	album.tracks = tracks;
+	album.tracks = { ...album.tracks, ...tracks };
 
 	return album;
 };

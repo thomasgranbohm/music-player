@@ -1,0 +1,28 @@
+@import "../../styles/includes.scss";
+
+.container {
+    margin: $gap;
+    display: grid;
+    gap: $gap;
+    grid-template-areas: "number name explicit duration";
+    grid-template-columns: 1rem auto 1rem 2rem;
+}
+
+.name {
+    grid-area: name;
+
+    @include no-text-overflow();
+    overflow: hidden;
+}
+
+.number {
+    grid-area: number;
+}
+
+.explicit {
+    grid-area: explicit;
+}
+
+.duration {
+    grid-area: duration;
+}

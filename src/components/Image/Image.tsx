@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classes from "./Image.module.scss";
-import NextImage from "next/image";
 
 export type ImagesArray = Array<{ height: number; url: string; width: number }>;
 
@@ -12,7 +11,7 @@ export type ImageProps = {
 };
 
 const Image = ({ className, images, name, size }: ImageProps) => {
-	const [sortedImages, setSortedImages] = useState(
+	const [sortedImages, _] = useState(
 		images.sort((a, b) => b.width * b.height - a.width * a.height)
 	);
 
@@ -26,7 +25,7 @@ const Image = ({ className, images, name, size }: ImageProps) => {
 					}`}
 				/>
 			))}
-			<img src="/images/Spotify_Icon_RGB_White.png" alt={name} />
+			<img src="/images/Spotify_Icon_RGB_White.png" alt={name} loading="lazy"/>
 		</picture>
 	);
 };

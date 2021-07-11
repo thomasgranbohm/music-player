@@ -13,7 +13,7 @@ const LinkListing = ({
 	className,
 }: LinkListingProps) => {
 	return (
-		<p className={[classes["list"], className ? className : ""].join(" ")}>
+		<span className={[classes["list"], className ? className : ""].join(" ")}>
 			{links.map(({ key, link, title }, i) => (
 				<Link
 					className={classes["item"]}
@@ -24,7 +24,7 @@ const LinkListing = ({
 					{title}
 				</Link>
 			))}
-		</p>
+		</span>
 	);
 };
 

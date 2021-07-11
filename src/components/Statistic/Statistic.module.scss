@@ -17,6 +17,9 @@
 			background-color: $green;
 			color: $background;
 		}
+		.cover{
+			display: block;
+		}
 	}
 
 	.cover {
@@ -25,6 +28,8 @@
 			height: 18rem;
 			width: 100%;
 		}
+
+		display: none;
 
 		position: absolute;
 		top: 0;
