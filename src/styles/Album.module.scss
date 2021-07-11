@@ -9,3 +9,7 @@
 .header {
 	grid-area: header;
 }
+
+.additional-information, .copyrights {
+	margin-top: $gap;
+}

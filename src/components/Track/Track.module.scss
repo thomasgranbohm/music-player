@@ -6,6 +6,8 @@
     gap: $gap;
     grid-template-areas: "number name explicit duration";
     grid-template-columns: 1rem auto 1rem 2rem;
+
+    align-items: center;
 }
 
 .name {
@@ -25,4 +27,5 @@
 
 .duration {
     grid-area: duration;
+    text-align: end;
 }

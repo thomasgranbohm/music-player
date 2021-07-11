@@ -24,8 +24,19 @@
 	flex-direction: column;
 	justify-content: flex-end;
 
-	.title,
-	.artists {
+	.type {
+		font-size: 1rem;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	.title {
+		font-size: 5em;
+		font-weight: bolder;
+		color: $inverted-background;
+	}
+
+	& > *  {
 		margin: 0;
 	}
 }
