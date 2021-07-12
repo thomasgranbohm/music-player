@@ -1,7 +1,7 @@
 import StatisticListing from "components/StatisticListing/StatisticListing";
 import { nextInstance } from "lib/api";
 import useObserver from "lib/observer";
-import { getArtistsStatstics, getTracksStatistics } from "lib/spotify";
+import { getArtistStatistics, getTrackStatistics } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
@@ -18,8 +18,8 @@ export const getServerSideProps: GetServerSideProps = getSSP(
 			: "medium_term";
 
 		const [artists, tracks] = await Promise.all([
-			getArtistsStatstics(cookie, { range }),
-			getTracksStatistics(cookie, { range }),
+			getArtistStatistics(cookie, { range }),
+			getTrackStatistics(cookie, { range }),
 		]);
 
 		return {

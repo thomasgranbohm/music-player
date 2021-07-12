@@ -1,5 +1,5 @@
 import withSession from "lib/session";
-import { getArtistsStatstics, getTracksStatistics } from "lib/spotify";
+import { getArtistStatistics, getTrackStatistics } from "lib/spotify";
 
 const Statistic = withSession(async (req, res) => {
 	const cookie = await req.session.get("user-data");
@@ -7,11 +7,11 @@ const Statistic = withSession(async (req, res) => {
 	const { artists_offset, range, tracks_offset } = req.query;
 
 	const [artists, tracks] = await Promise.all([
-		getArtistsStatstics(cookie, {
+		getArtistStatistics(cookie, {
 			offset: artists_offset,
 			range,
 		}),
-		getTracksStatistics(cookie, {
+		getTrackStatistics(cookie, {
 			offset: tracks_offset,
 			range,
 		}),

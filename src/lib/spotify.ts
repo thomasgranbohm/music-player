@@ -1,5 +1,7 @@
 import { spotifyInstance } from "./api";
 
+const { OFFLINE } = process.env;
+
 export const makeSpotifyRequest = async (url, cookie) => {
 	try {
 		const resp = await spotifyInstance.get(url, {
@@ -26,48 +28,50 @@ export const makeSpotifyRequest = async (url, cookie) => {
 	}
 };
 
-export const getAlbums = async (cookie, offset = 0) => {
-	const data = await makeSpotifyRequest(
-		`/me/albums?offset=${offset}`,
-		cookie
-	);
-	return data;
-};
+export const getAlbums = async (cookie, offset = 0) =>
+	OFFLINE ?
+		require("../../samples/albums.json") :
+		makeSpotifyRequest(
+			`/me/albums?offset=${offset}`,
+			cookie
+		);
 
-export const getPlaylists = async (cookie, offset = 0) => {
-	const data = await makeSpotifyRequest(
-		`/me/playlists?offset=${offset}`,
-		cookie
-	);
-	return data;
-};
+export const getPlaylists = async (cookie, offset = 0) =>
+	OFFLINE ?
+		require("../../samples/playlists.json") :
+		makeSpotifyRequest(
+			`/me/playlists?offset=${offset}`,
+			cookie
+		);
 
-export const getArtistsStatstics = async (
+export const getArtistStatistics = async (
 	cookie,
 	{ offset = 0, range = "medium_term" }
-) => {
-	const data = await makeSpotifyRequest(
-		`/me/top/artists?time_range=${range}&offset=${offset}&limit=25`,
-		cookie
-	);
-	return data;
-};
+) => OFFLINE ?
+		require("../../samples/top-artists.json") :
+		makeSpotifyRequest(
+			`/me/top/artists?time_range=${range}&offset=${offset}&limit=25`,
+			cookie
+		);
 
-export const getTracksStatistics = async (
+export const getTrackStatistics = async (
 	cookie,
 	{ offset = 0, range = "medium_term" }
-) => {
-	const data = makeSpotifyRequest(
-		`/me/top/tracks?time_range=${range}&offset=${offset}&limit=25`,
-		cookie
-	);
-	return data;
-};
+) => OFFLINE ?
+		require("../../samples/top-tracks.json") :
+		makeSpotifyRequest(
+			`/me/top/tracks?time_range=${range}&offset=${offset}&limit=25`,
+			cookie
+		);
 
 export const getAlbum = async (cookie, id) => {
 	const [album, tracks] = await Promise.all([
-		makeSpotifyRequest(`/albums/${id}`, cookie),
-		makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
+		OFFLINE ?
+			require("../../samples/album.json")
+			: makeSpotifyRequest(`/albums/${id}`, cookie),
+		OFFLINE ?
+			require("../../samples/album-tracks.json") :
+			makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
 	]);
 
 	album.tracks = { ...album.tracks, ...tracks };

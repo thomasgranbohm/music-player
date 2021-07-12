@@ -17,6 +17,7 @@ const useObserver = (
 		const observer = new IntersectionObserver(
 			async ([entry]) => {
 				if (!entry.isIntersecting || condition || loading) return;
+				if (process.env.NEXT_PUBLIC_OFFLINE) return;
 
 				setLoading(true);
 				await callback();

@@ -1,0 +1,705 @@
+{
+  "href" : "https://api.spotify.com/v1/users/familjengranbohm/playlists?offset=0&limit=20",
+  "items" : [ {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/3nKrfv3WYShqJLbRfCdIQY"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/3nKrfv3WYShqJLbRfCdIQY",
+    "id" : "3nKrfv3WYShqJLbRfCdIQY",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2734b22eb1e020e907c69e8543fab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273fb913ff4d22b3a559b3dbe3d",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2734b22eb1e020e907c69e8543fab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273fb913ff4d22b3a559b3dbe3d",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2734b22eb1e020e907c69e8543fab67616d0000b2734bb13f7847252cc829e05aa6ab67616d0000b273fb913ff4d22b3a559b3dbe3d",
+      "width" : 60
+    } ],
+    "name" : "musikalisk kram",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "NixmYWRmZTI2YjI0YjNhNjM5NGQzZjViYTI3NDRkYmY4OTA2YzJmYzIx",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/3nKrfv3WYShqJLbRfCdIQY/tracks",
+      "total" : 5
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:3nKrfv3WYShqJLbRfCdIQY"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/28SvSWmDi61j46IjjnFfEY"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/28SvSWmDi61j46IjjnFfEY",
+    "id" : "28SvSWmDi61j46IjjnFfEY",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2733ea20a6387d8474dc756227fab67616d0000b27382a4e506e11b5034734e6fefab67616d0000b273c5c36d134537b2809a8c22c6",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2733ea20a6387d8474dc756227fab67616d0000b27382a4e506e11b5034734e6fefab67616d0000b273c5c36d134537b2809a8c22c6",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/ab67616d0000b2732e5a021780f5056724a5b6afab67616d0000b2733ea20a6387d8474dc756227fab67616d0000b27382a4e506e11b5034734e6fefab67616d0000b273c5c36d134537b2809a8c22c6",
+      "width" : 60
+    } ],
+    "name" : "🌞 2021",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTQsYjIwZDg5YjRkM2E2NTAwN2UwODBmYjYwNjg3MjM3MDIwMWEzY2U0ZA==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/28SvSWmDi61j46IjjnFfEY/tracks",
+      "total" : 11
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:28SvSWmDi61j46IjjnFfEY"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/2LRBIv7bEaY8sUBEsWSroE"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/2LRBIv7bEaY8sUBEsWSroE",
+    "id" : "2LRBIv7bEaY8sUBEsWSroE",
+    "images" : [ ],
+    "name" : "🏃‍♂️",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MSwxMmJkZTZiOTRkY2U0MjcyZTI3ZGVmZjBjMTlhY2I1MjQ5MTg1OGRj",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/2LRBIv7bEaY8sUBEsWSroE/tracks",
+      "total" : 0
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:2LRBIv7bEaY8sUBEsWSroE"
+  }, {
+    "collaborative" : false,
+    "description" : "<a href=spotify:playlist:37i9dQZF1EIYHlfEDwnhiL>Frank Ocean</a>, <a href=spotify:playlist:37i9dQZF1EIVOlGHvpBwBH>Tyler, The Creator</a>, <a href=spotify:playlist:37i9dQZF1EIZvyWORCnh8X>Isaiah Rashad</a> and more",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/37i9dQZF1EIUQEbzh0iqGG"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIUQEbzh0iqGG",
+    "id" : "37i9dQZF1EIUQEbzh0iqGG",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://seed-mix-image.spotifycdn.com/v6/img/artist/73sIBHcqh3Z3NyqHKZ7FOL/en/large",
+      "width" : null
+    } ],
+    "name" : "Childish Gambino Mix",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTYyNjA2OSwwMDAwMDAwMGZhNjMyMTZkM2IzZTE0MjRjYTU1NzljYjFhYTUxY2Fm",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIUQEbzh0iqGG/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:37i9dQZF1EIUQEbzh0iqGG"
+  }, {
+    "collaborative" : false,
+    "description" : "<a href=spotify:playlist:37i9dQZF1EIZ0zkzLJLlmR>MF DOOM</a>, <a href=spotify:playlist:37i9dQZF1EIWo0rFqVWMlp>Pharrell Williams</a>, <a href=spotify:playlist:37i9dQZF1EIVZkoNNnHrtC>Justice</a> and more",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/37i9dQZF1EIZvbvrhfHXQ5"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIZvbvrhfHXQ5",
+    "id" : "37i9dQZF1EIZvbvrhfHXQ5",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://seed-mix-image.spotifycdn.com/v6/img/artist/4tZwfgrHOc3mvqYlEYSvVi/en/large",
+      "width" : null
+    } ],
+    "name" : "Daft Punk Mix",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTYyNjA2OSwwMDAwMDAwMDVhNWI2YjU3MThhNDVmMTE3NjRiODhiNzFkNmZjYWJh",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIZvbvrhfHXQ5/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:37i9dQZF1EIZvbvrhfHXQ5"
+  }, {
+    "collaborative" : false,
+    "description" : "<a href=spotify:playlist:37i9dQZF1EIVYt3hfHxCAl>Vegyn</a>, <a href=spotify:playlist:37i9dQZF1EIWbg2XC4yl9z>Helena Deland</a>, <a href=spotify:playlist:37i9dQZF1EIWIdOcrduXFo>Caroline Polachek</a> and more",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/37i9dQZF1EIZgsOhnRKiqt"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIZgsOhnRKiqt",
+    "id" : "37i9dQZF1EIZgsOhnRKiqt",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://seed-mix-image.spotifycdn.com/v6/img/artist/6fFcUOFcbjeIuEomuUthkw/en/large",
+      "width" : null
+    } ],
+    "name" : "Oklou Mix",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTYyNjA2OSwwMDAwMDAwMDZkNmUxY2NhMGNjMWZiOTJlMDg0YmI4OWM2MTg3NjM3",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/37i9dQZF1EIZgsOhnRKiqt/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:37i9dQZF1EIZgsOhnRKiqt"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/4KLxQYR1Yct0OXvsCG62VW"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/4KLxQYR1Yct0OXvsCG62VW",
+    "id" : "4KLxQYR1Yct0OXvsCG62VW",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebbf42b5b9129f8a81804c2204a",
+      "width" : null
+    } ],
+    "name" : "no more city lights",
+    "owner" : {
+      "display_name" : "albinstrahl",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/albinstrahl"
+      },
+      "href" : "https://api.spotify.com/v1/users/albinstrahl",
+      "id" : "albinstrahl",
+      "type" : "user",
+      "uri" : "spotify:user:albinstrahl"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTM0LDljYjBiMzYzMDUzYzUwN2I4OTY2YzVjMThmZTYzZWU1MzcyMWY5MzY=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/4KLxQYR1Yct0OXvsCG62VW/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:4KLxQYR1Yct0OXvsCG62VW"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/65nEwncqNnu6r4EETNz2YG"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/65nEwncqNnu6r4EETNz2YG",
+    "id" : "65nEwncqNnu6r4EETNz2YG",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb9e8e7a84059f5e2cc8978b39",
+      "width" : null
+    } ],
+    "name" : "(talked to god) she calls me emo!",
+    "owner" : {
+      "display_name" : "wawallama",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/wawallama"
+      },
+      "href" : "https://api.spotify.com/v1/users/wawallama",
+      "id" : "wawallama",
+      "type" : "user",
+      "uri" : "spotify:user:wawallama"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTY5LDc5NDU1OTRhYTM5ZGE4OTAwMzlmOGNkZDBkMWFmNDQ0ZmE3NmQ3Yjk=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/65nEwncqNnu6r4EETNz2YG/tracks",
+      "total" : 70
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:65nEwncqNnu6r4EETNz2YG"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/6HzEhFKNQOAzuSRzJjZbug"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/6HzEhFKNQOAzuSRzJjZbug",
+    "id" : "6HzEhFKNQOAzuSRzJjZbug",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb4a8a0c2f4a0c59a1c3b65945",
+      "width" : null
+    } ],
+    "name" : "inte skräp",
+    "owner" : {
+      "display_name" : "hannakarlssonnystrom",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/hannakarlssonnystrom"
+      },
+      "href" : "https://api.spotify.com/v1/users/hannakarlssonnystrom",
+      "id" : "hannakarlssonnystrom",
+      "type" : "user",
+      "uri" : "spotify:user:hannakarlssonnystrom"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "NzIsNmQ3ZGNhNTQ5MDEwODRjYTk2ODlkMDZkZjk3NjgxZmJhNzlmMTI3MA==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/6HzEhFKNQOAzuSRzJjZbug/tracks",
+      "total" : 64
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:6HzEhFKNQOAzuSRzJjZbug"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/0SvHg57YddXFxBjP6jj9d8"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/0SvHg57YddXFxBjP6jj9d8",
+    "id" : "0SvHg57YddXFxBjP6jj9d8",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273fa90e1a538352bc8382de43d",
+      "width" : 640
+    } ],
+    "name" : "sop",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "Myw1NjliMDQ1MDdiOGFlMzZhZjJiMzc0ZDJmMTdiMGM4NTMwNjJkOWNj",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/0SvHg57YddXFxBjP6jj9d8/tracks",
+      "total" : 2
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:0SvHg57YddXFxBjP6jj9d8"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/2xjNariCYPcr0P87rh4dOF"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/2xjNariCYPcr0P87rh4dOF",
+    "id" : "2xjNariCYPcr0P87rh4dOF",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb007648012dc395074e6099de",
+      "width" : null
+    } ],
+    "name" : "acceptabelt att spela på jobbet",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTAsM2M0ZmQ5OGM0OTVlNzQ5YzQyYmY3MGZlNDRkZWU5YTM1MjBmMGM2ZQ==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/2xjNariCYPcr0P87rh4dOF/tracks",
+      "total" : 7
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:2xjNariCYPcr0P87rh4dOF"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/4J2eBKbwLIN60ZjdAYfSfd"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/4J2eBKbwLIN60ZjdAYfSfd",
+    "id" : "4J2eBKbwLIN60ZjdAYfSfd",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/ab67616d0000b273aa57907bf0cb2ca0c8cc74bcab67616d0000b273ae69f02d74849157de206294ab67616d0000b273d2b0fc9e75924a2e76c1bc99ab67616d0000b273dbd83e179619408e5d05cc99",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/ab67616d0000b273aa57907bf0cb2ca0c8cc74bcab67616d0000b273ae69f02d74849157de206294ab67616d0000b273d2b0fc9e75924a2e76c1bc99ab67616d0000b273dbd83e179619408e5d05cc99",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/ab67616d0000b273aa57907bf0cb2ca0c8cc74bcab67616d0000b273ae69f02d74849157de206294ab67616d0000b273d2b0fc9e75924a2e76c1bc99ab67616d0000b273dbd83e179619408e5d05cc99",
+      "width" : 60
+    } ],
+    "name" : "spektrum",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "NyxlNGZkMmZkYThmZDZhNjQ0MmZjZmUxOGMyMjJlYWIwZTgxMGQ2ZmVm",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/4J2eBKbwLIN60ZjdAYfSfd/tracks",
+      "total" : 6
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:4J2eBKbwLIN60ZjdAYfSfd"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/5LdF37saQ5gJq6o0tnb8Qi"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/5LdF37saQ5gJq6o0tnb8Qi",
+    "id" : "5LdF37saQ5gJq6o0tnb8Qi",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb4d93cb8fe21097436b9677a7",
+      "width" : null
+    } ],
+    "name" : "💫",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "MjA3LDViNzIyY2ExZGNjZGYyZGY3YTFhZTBhNWM5MmNkMTlhZTRiODgyN2M=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/5LdF37saQ5gJq6o0tnb8Qi/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:5LdF37saQ5gJq6o0tnb8Qi"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/6ylbAEy347JuG5ULCVs28D"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/6ylbAEy347JuG5ULCVs28D",
+    "id" : "6ylbAEy347JuG5ULCVs28D",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/ab67616d0000b273044a5466dac00f7b3c570b99ab67616d0000b273540ab7c149079184e8724dc4ab67616d0000b2739b6375bad39943011986c247ab67616d0000b273d93501aba7bc1140aac628c6",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/ab67616d0000b273044a5466dac00f7b3c570b99ab67616d0000b273540ab7c149079184e8724dc4ab67616d0000b2739b6375bad39943011986c247ab67616d0000b273d93501aba7bc1140aac628c6",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/ab67616d0000b273044a5466dac00f7b3c570b99ab67616d0000b273540ab7c149079184e8724dc4ab67616d0000b2739b6375bad39943011986c247ab67616d0000b273d93501aba7bc1140aac628c6",
+      "width" : 60
+    } ],
+    "name" : "👩💕",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTQsMjNlYzI0OWJiYTEzZTM0YzdiODgwZDI3MWEyMWU1ODZmYmM3MmMxZA==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/6ylbAEy347JuG5ULCVs28D/tracks",
+      "total" : 12
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:6ylbAEy347JuG5ULCVs28D"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/2jUIpcwbnuRBXWWThDG2wt"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/2jUIpcwbnuRBXWWThDG2wt",
+    "id" : "2jUIpcwbnuRBXWWThDG2wt",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb5630701e6954548d49d9a35e",
+      "width" : null
+    } ],
+    "name" : "jazz",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MTEsNzVkZTFiZWI3Yzg2ZjkyYjYzZDQxNWNlYTFkMTVlOTVmYTY1YjZkMw==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/2jUIpcwbnuRBXWWThDG2wt/tracks",
+      "total" : 7
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:2jUIpcwbnuRBXWWThDG2wt"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/30f3GG7IASWaRZRJorYh5V"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/30f3GG7IASWaRZRJorYh5V",
+    "id" : "30f3GG7IASWaRZRJorYh5V",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebbf17e15d1c7b1978cdb5312a5",
+      "width" : null
+    } ],
+    "name" : "ska vi gråta ikors?",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "MjksODk1ZDM5NmViOTU5N2Q3ZmZjMjY1ZjE2MjliZWRkNzBhN2MzOTRmNg==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/30f3GG7IASWaRZRJorYh5V/tracks",
+      "total" : 25
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:30f3GG7IASWaRZRJorYh5V"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/5g86H2hDq5QCKMQCd8apAj"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/5g86H2hDq5QCKMQCd8apAj",
+    "id" : "5g86H2hDq5QCKMQCd8apAj",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebbd66154bc583ffc2e31b8c18a",
+      "width" : null
+    } ],
+    "name" : "bakgrundsbangers",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "MTA4LDIzZTk5ODdmYWY0ZmU2ZGQ3YjVlY2VlMGRiYTQyNTkwYzIxMDY0MGM=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/5g86H2hDq5QCKMQCd8apAj/tracks",
+      "total" : 95
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:5g86H2hDq5QCKMQCd8apAj"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/4onTd7iqKiX9A3owJuPAb2"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/4onTd7iqKiX9A3owJuPAb2",
+    "id" : "4onTd7iqKiX9A3owJuPAb2",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb7c074f4e9cade49499ba3207",
+      "width" : null
+    } ],
+    "name" : "partybangers",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "MzMsZjBiMjhjZjFhYzI5NzQ0ZDlhZTJmZDE1NmUyYWEzMWQ4MzYwNzlhNA==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/4onTd7iqKiX9A3owJuPAb2/tracks",
+      "total" : 30
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:4onTd7iqKiX9A3owJuPAb2"
+  }, {
+    "collaborative" : false,
+    "description" : "playlist equivalent of the blush emoji",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/6K6ykoSFG5ouKHKL7VcLl1"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/6K6ykoSFG5ouKHKL7VcLl1",
+    "id" : "6K6ykoSFG5ouKHKL7VcLl1",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://i.scdn.co/image/ab67706c0000bebb0b5c548726560d9eccbd8a39",
+      "width" : null
+    } ],
+    "name" : "all love",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "MTMsOWVkZjFmMTIwNDE4MTM5NjVjZGYxMzgwNzU0Njk3MTEzMGU5MDEwNw==",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/6K6ykoSFG5ouKHKL7VcLl1/tracks",
+      "total" : 9
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:6K6ykoSFG5ouKHKL7VcLl1"
+  }, {
+    "collaborative" : false,
+    "description" : "",
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/playlist/1QLMv8AnzS8I0Zh0366poK"
+    },
+    "href" : "https://api.spotify.com/v1/playlists/1QLMv8AnzS8I0Zh0366poK",
+    "id" : "1QLMv8AnzS8I0Zh0366poK",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/ab67616d0000b273137f11a03e6e837e619aa967ab67616d0000b2739ca3ec90240c6d48c1374743ab67616d0000b273bf19a12e8dfa81267db54be9ab67616d0000b273f91a3040f0be854026ad2dd0",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/ab67616d0000b273137f11a03e6e837e619aa967ab67616d0000b2739ca3ec90240c6d48c1374743ab67616d0000b273bf19a12e8dfa81267db54be9ab67616d0000b273f91a3040f0be854026ad2dd0",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/ab67616d0000b273137f11a03e6e837e619aa967ab67616d0000b2739ca3ec90240c6d48c1374743ab67616d0000b273bf19a12e8dfa81267db54be9ab67616d0000b273f91a3040f0be854026ad2dd0",
+      "width" : 60
+    } ],
+    "name" : "hyperpop",
+    "owner" : {
+      "display_name" : "Tommy",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/familjengranbohm"
+      },
+      "href" : "https://api.spotify.com/v1/users/familjengranbohm",
+      "id" : "familjengranbohm",
+      "type" : "user",
+      "uri" : "spotify:user:familjengranbohm"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "OSw5MjU1ZGRjOWIzZTNhYmQ5NTI3MTI1NDQ4MWRhZGM4YTYxNjg4YTlk",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/playlists/1QLMv8AnzS8I0Zh0366poK/tracks",
+      "total" : 7
+    },
+    "type" : "playlist",
+    "uri" : "spotify:playlist:1QLMv8AnzS8I0Zh0366poK"
+  } ],
+  "limit" : 20,
+  "next" : "https://api.spotify.com/v1/users/familjengranbohm/playlists?offset=20&limit=20",
+  "offset" : 0,
+  "previous" : null,
+  "total" : 58
+}
