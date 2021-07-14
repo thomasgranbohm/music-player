@@ -11,7 +11,7 @@ export const getSSP = (f: GetServerSideProps) =>
 	withSession(async ({ req, ...rest }) => {
 		const cookie = req.session.get("user-data");
 
-		if (!cookie) {
+		if (!cookie && !process.env.NEXT_PUBLIC_OFFLINE) {
 			return {
 				redirect: {
 					destination: "/login",

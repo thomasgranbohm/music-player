@@ -1,42 +1,31 @@
 @import "styles/includes";
 
 .header {
-	grid-area: header;
+	height: 16rem;
 
 	display: grid;
 	grid-template-areas: "cover text";
 	grid-template-columns: 16rem 1fr;
 	gap: $gap;
 
-	margin-block-end: $gap;
-}
+	margin-block-end: calc(2 * #{$gap});
 
-.cover {
-	grid-area: cover;
-	> img {
-		height: 16rem;
-		width: 16rem;
+	.cover {
+		grid-area: cover;
+		> img {
+			height: 16rem;
+			width: 16rem;
+		}
 	}
-}
+	.text {
+		grid-area: text;
 
-.text {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 
-	.type {
-		font-size: 1rem;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
-
-	.title {
-		font-size: 5em;
-		font-weight: bolder;
-		color: $inverted-background;
-	}
-
-	& > *  {
-		margin: 0;
+		& > * {
+			margin: 0;
+		}
 	}
 }

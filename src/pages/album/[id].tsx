@@ -1,7 +1,9 @@
+import PageTitle from "components/PageTitle/PageTitle";
 import TrackListing from "components/TrackListing/TrackListing";
 import { getAlbum } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import classes from "styles/Album.module.scss";
 import Cover from "../../components/Cover/Cover";
 
@@ -29,16 +31,18 @@ const Album = ({
 	},
 }) => (
 	<div className={classes["container"]}>
+		<PageTitle title={`${name} - ${artists[0].name}`} />
 		<Cover
+			type="album"
 			className={classes["header"]}
 			images={images}
 			name={name}
 			artists={artists}
 			release_date={release_date}
 			tracks_amount={tracks.items.length}
-			type={type}
+			albumType={type}
 		/>
-		<TrackListing tracks={tracks} />
+		<TrackListing type="album" tracks={tracks.items} />
 		<div className={classes["additional-information"]}>
 			{genres && <p className={classes["genres"]}>{genres.join(", ")}</p>}
 			{label && (

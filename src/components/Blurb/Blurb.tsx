@@ -45,9 +45,9 @@ export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
 		{...props}
 		subtitle={
 			<LinkListing
-				links={artists.map(({ id, href, name }) => ({
+				links={artists.map(({ id, name }) => ({
 					key: id,
-					link: href,
+					link: `/album/${id}`,
 					title: name,
 				}))}
 			/>
@@ -57,12 +57,26 @@ export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
 	/>
 );
 
+export const ArtistBlurb = (props) => {
+	console.log(props);
+	return <Blurb {...props} href={`/artist/${props.id}`} />;
+};
+
 type BlurbProps = {
 	subtitle: string | ReactNode;
 	type: "playlist" | "album";
+	explicit?: boolean;
 } & BasicProps;
 
-const Blurb = ({ images, name, subtitle, type, href }: BlurbProps) => {
+const Blurb = ({
+	images,
+	name,
+	subtitle,
+	type,
+	href,
+	explicit,
+	...rest
+}: BlurbProps) => {
 	return (
 		<div className={[classes["blurb"], classes[type]].join(" ")}>
 			<Link href={href}>
@@ -74,7 +88,7 @@ const Blurb = ({ images, name, subtitle, type, href }: BlurbProps) => {
 			</Link>
 			<Link href={href}>
 				<p className={classes["title"]} title={name}>
-					<b>{name}</b>
+					<b>{name}</b> {explicit && "E"}
 				</p>
 			</Link>
 			<div className={classes["sub-title"]}>{subtitle}</div>

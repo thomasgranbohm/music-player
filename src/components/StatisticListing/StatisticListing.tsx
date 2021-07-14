@@ -1,3 +1,4 @@
+import Heading from "components/Heading/Heading";
 import { useState } from "react";
 import Statistic from "../Statistic/Statistic";
 import classes from "./StatisticListing.module.scss";
@@ -13,7 +14,7 @@ const StatisticListing = ({ items, title, type }: StatisticListingProps) => {
 
 	return (
 		<div className={classes["container"]}>
-			<h2>{title}</h2>
+			<Heading type="h2">{title}</Heading>
 			<ul className="items">
 				{items.map(({ id, images, name, album, artists, href }, i) => {
 					const statisticProps = {

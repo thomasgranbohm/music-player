@@ -1,14 +1,19 @@
+import Heading from "components/Heading/Heading";
 import { FC } from "react";
 import classes from "./BlurbListing.module.scss";
 
 type BlurbListingType = {
 	title: string;
-	wrap?: boolean;
+	scroll?: boolean;
 };
 
-const BlurbListing: FC<BlurbListingType> = ({ title, children, wrap }) => (
-	<div className={[classes["listing"], wrap && classes["wrap"]].join(" ")}>
-		<h1 className={classes["title"]}>{title}</h1>
+const BlurbListing: FC<BlurbListingType> = ({ title, children, scroll }) => (
+	<div
+		className={[classes["listing"], scroll && classes["scroll"]].join(" ")}
+	>
+		<Heading type="h1" className={classes["title"]}>
+			{title}
+		</Heading>
 		<div className={classes["items"]}>
 			<div className={classes["children"]}>{children}</div>
 		</div>

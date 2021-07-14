@@ -1,0 +1,29 @@
+{
+  "external_urls" : {
+    "spotify" : "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF"
+  },
+  "followers" : {
+    "href" : null,
+    "total" : 6610178
+  },
+  "genres" : [ "hip hop", "rap" ],
+  "href" : "https://api.spotify.com/v1/artists/4V8LLVI7PbaPR0K2TGSxFF",
+  "id" : "4V8LLVI7PbaPR0K2TGSxFF",
+  "images" : [ {
+    "height" : 640,
+    "url" : "https://i.scdn.co/image/ab6761610000e5eb8278b782cbb5a3963db88ada",
+    "width" : 640
+  }, {
+    "height" : 320,
+    "url" : "https://i.scdn.co/image/ab676161000051748278b782cbb5a3963db88ada",
+    "width" : 320
+  }, {
+    "height" : 160,
+    "url" : "https://i.scdn.co/image/ab6761610000f1788278b782cbb5a3963db88ada",
+    "width" : 160
+  } ],
+  "name" : "Tyler, The Creator",
+  "popularity" : 92,
+  "type" : "artist",
+  "uri" : "spotify:artist:4V8LLVI7PbaPR0K2TGSxFF"
+}

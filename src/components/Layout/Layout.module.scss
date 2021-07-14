@@ -23,6 +23,8 @@
 		padding: calc(2 * #{$gap});
 		overflow: auto;
 		height: 100%;
+
+		position: relative;
 	}
 
 	.footer {

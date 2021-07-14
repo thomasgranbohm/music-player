@@ -1,3 +1,4 @@
+import Heading from "components/Heading/Heading";
 import StatisticListing from "components/StatisticListing/StatisticListing";
 import { nextInstance } from "lib/api";
 import useObserver from "lib/observer";
@@ -60,7 +61,7 @@ const Statistics = ({ artists: baseArtists, tracks: baseTracks, range }) => {
 
 	return (
 		<>
-			<h1>Statistics</h1>
+			<Heading type="h1">Statistics</Heading>
 			<div className={classes["listings"]}>
 				<StatisticListing
 					title="Artists"

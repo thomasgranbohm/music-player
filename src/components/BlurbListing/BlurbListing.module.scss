@@ -2,6 +2,8 @@
 
 .listing {
 	width: 100%;
+
+	margin-block-end: calc(2 * #{$gap});
 }
 
 .items {
@@ -28,18 +30,18 @@
 		}
 	}
 
-	.listing.wrap > & {
+	.listing.scroll > & {
 		overflow-x: hidden;
-		margin-inline: calc(-1 * #{$gap});
+		margin-inline: calc(-2 * #{$gap});
 
 		.children {
 			display: flex;
 			flex-wrap: nowrap;
 			overflow: auto;
-			padding: 0 $gap $gap;
+			padding: 0 calc(2 * #{$gap}) $gap;
 
 			scroll-snap-type: x mandatory;
-			scroll-padding: 0 $gap;
+			scroll-padding: 0 calc(2 * #{$gap});
 
 			& > * {
 				scroll-snap-align: start;

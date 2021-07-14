@@ -1,3 +1,4 @@
+import Heading from "components/Heading/Heading";
 import classes from "styles/Login.module.scss";
 
 const Login = () => {
@@ -20,7 +21,9 @@ const Login = () => {
 					src="/images/Spotify_Icon_RGB_White.png"
 					alt="Spotify Icon"
 				/>
-				<h2 className={classes["title"]}>Login with Spotify</h2>
+				<Heading type="h2" className={classes["title"]}>
+					Login with Spotify
+				</Heading>
 			</a>
 		</div>
 	);
