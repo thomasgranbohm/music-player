@@ -25,7 +25,12 @@
 		justify-content: flex-end;
 
 		& > * {
-			margin: 0;
+			margin-bottom: 0.25rem;
 		}
+	}
+	.information > *:not(:last-child)::after {
+		content: "·";
+		display: inline-block;
+		margin-inline: calc(#{$gap} / 2);
 	}
 }

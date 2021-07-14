@@ -23,8 +23,14 @@ type PlaylistBlurbProps = {
 	};
 } & BasicProps;
 
-export const PlaylistBlurb = ({ owner, ...props }: PlaylistBlurbProps) => (
-	<Blurb {...props} subtitle={owner.display_name} type="playlist" />
+export const PlaylistBlurb = ({ id, owner, ...props }: PlaylistBlurbProps) => (
+	<Blurb
+		{...props}
+		id={id}
+		href={`/playlist/${id}`}
+		subtitle={owner.display_name}
+		type="playlist"
+	/>
 );
 
 type AlbumBlurbProps = {
@@ -47,7 +53,7 @@ export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
 			<LinkListing
 				links={artists.map(({ id, name }) => ({
 					key: id,
-					link: `/album/${id}`,
+					link: `/artist/${id}`,
 					title: name,
 				}))}
 			/>
@@ -57,10 +63,9 @@ export const AlbumBlurb = ({ artists, ...props }: AlbumBlurbProps) => (
 	/>
 );
 
-export const ArtistBlurb = (props) => {
-	console.log(props);
-	return <Blurb {...props} href={`/artist/${props.id}`} />;
-};
+export const ArtistBlurb = (props) => (
+	<Blurb {...props} href={`/artist/${props.id}`} />
+);
 
 type BlurbProps = {
 	subtitle: string | ReactNode;
@@ -81,6 +86,7 @@ const Blurb = ({
 		<div className={[classes["blurb"], classes[type]].join(" ")}>
 			<Link href={href}>
 				<Image
+					size="medium"
 					className={classes["cover"]}
 					images={images}
 					name={`${name} cover`}

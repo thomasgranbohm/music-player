@@ -40,9 +40,12 @@ const Album = ({
 			artists={artists}
 			release_date={release_date}
 			tracks_amount={tracks.items.length}
+			playtime={tracks.items
+				.map(({ duration_ms }) => duration_ms)
+				.reduce((a, b) => a + b)}
 			albumType={type}
 		/>
-		<TrackListing type="album" tracks={tracks.items} />
+		<TrackListing type="album" tracks={tracks} />
 		<div className={classes["additional-information"]}>
 			{genres && <p className={classes["genres"]}>{genres.join(", ")}</p>}
 			{label && (

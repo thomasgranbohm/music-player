@@ -1,8 +1,11 @@
+import Image, { ImagesArray } from "components/Image/Image";
 import LinkListing from "components/LinkListing/LinkListing";
+import { concat, parseDate } from "lib/functions";
 import classes from "./Track.module.scss";
 
 type Props = {
 	artists;
+	album;
 	duration_ms: number;
 	explicit: boolean;
 	id: string;
@@ -11,6 +14,7 @@ type Props = {
 };
 
 const Track = ({
+	album,
 	artists,
 	duration_ms,
 	explicit,
@@ -18,16 +22,17 @@ const Track = ({
 	name,
 	track_number,
 }: Props) => {
-	const date = new Date(duration_ms);
-	const getDate = () =>
-		`${date.getMinutes()}:${date
-			.getSeconds()
-			.toString()
-			.padStart(2, "0")}`.padStart(4, "0");
-
 	return (
-		<div className={classes["container"]}>
+		<div
+			className={concat(classes["container"], [
+				classes["with-image"],
+				!!album?.images,
+			])}
+		>
 			<p className={classes["number"]}>{track_number}</p>
+			{!!album && !!album.images && (
+				<Image images={album.images} size="small" name={name} />
+			)}
 			<div className={classes["name"]}>
 				<p>
 					<b>{name}</b>
@@ -43,7 +48,7 @@ const Track = ({
 			<p className={classes["explicit"]}>
 				<b>{explicit ? "E" : ""}</b>
 			</p>
-			<p className={classes["duration"]}>{getDate()}</p>
+			<p className={classes["duration"]}>{parseDate(duration_ms)}</p>
 		</div>
 	);
 };

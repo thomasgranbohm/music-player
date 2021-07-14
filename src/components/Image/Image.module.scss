@@ -2,10 +2,27 @@
 
 .image {
 	display: block;
-	background: $green;
 
-	> img {
-		object-fit: cover;
-		display: block;
-	}
+	background: $green url("/images/Spotify_Icon_RGB_White.png");
+	background-size: 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	object-fit: cover;
+	display: block;
+}
+
+.small {
+	width: 2rem;
+	height: 2rem;
+}
+
+.medium {
+	width: 10rem;
+	height: 10rem;
+}
+
+.large {
+	width: 16rem;
+	height: 16rem;
 }

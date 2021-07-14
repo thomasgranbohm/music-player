@@ -1,19 +1,21 @@
 import { spotifyInstance } from "./api";
 
 const { OFFLINE } = process.env;
-console.log("OFFLINE", OFFLINE)
 
-export const makeSpotifyRequest = async (url, cookie) => {
+export const makeSpotifyRequest = async (url, cookie, useMarket = true) => {
 	try {
 		const resp = await spotifyInstance.get(url, {
 			headers: {
 				Authorization: `Bearer ${cookie["access_token"]}`,
 			},
+			params: {
+				market: useMarket ? "from_token" : undefined
+			}
 		});
 
 		return resp.data;
 	} catch (error) {
-		console.log(error);
+		if (error.isAxiosError) console.log(`${error.request.protocol}//${error.request.host}${error.request.path}`, error.response.data)
 
 		// if (
 		// 	error.isAxiosError &&
@@ -47,7 +49,7 @@ export const getArtistStatistics = async (
 		? require("../../samples/top-artists.json")
 		: makeSpotifyRequest(
 				`/me/top/artists?time_range=${range}&offset=${offset}&limit=25`,
-				cookie
+				cookie, false
 		  );
 
 export const getTrackStatistics = async (
@@ -58,7 +60,7 @@ export const getTrackStatistics = async (
 		? require("../../samples/top-tracks.json")
 		: makeSpotifyRequest(
 				`/me/top/tracks?time_range=${range}&offset=${offset}&limit=25`,
-				cookie
+				cookie, false
 		  );
 
 export const getAlbum = async (cookie, id) => {
@@ -78,16 +80,28 @@ export const getAlbum = async (cookie, id) => {
 
 export const getArtist = async (cookie, id) => {
 	const [artist, albums, related, tracks] = await Promise.all([
-		OFFLINE ? require("../../samples/artist.json") : makeSpotifyRequest(`/artists/${id}?market=from_token`, cookie),
-		OFFLINE ? require("../../samples/artist-albums.json") : makeSpotifyRequest(`/artists/${id}/albums?market=from_token`, cookie),
-		OFFLINE ? require("../../samples/artist-related-artists.json") : makeSpotifyRequest(`/artists/${id}/related-artists?market=from_token`, cookie),
-		OFFLINE ? require("../../samples/artist-top-tracks.json") : makeSpotifyRequest(`/artists/${id}/top-tracks?market=from_token`, cookie),
+		OFFLINE ? require("../../samples/artist.json") : makeSpotifyRequest(`/artists/${id}`, cookie),
+		OFFLINE ? require("../../samples/artist-albums.json") : makeSpotifyRequest(`/artists/${id}/albums`, cookie),
+		OFFLINE ? require("../../samples/artist-related-artists.json") : makeSpotifyRequest(`/artists/${id}/related-artists`, cookie),
+		OFFLINE ? require("../../samples/artist-top-tracks.json") : makeSpotifyRequest(`/artists/${id}/top-tracks`, cookie),
 	]);
-
+	
 	return {
 		...artist,
 		albums,
 		related: related.artists,
-		top: tracks.tracks,
+		top: tracks,
 	};
 };
+
+export const getPlaylist = async (cookie, id, offset = 0) => {
+	const [playlist, tracks] = await Promise.all([
+		makeSpotifyRequest(`/playlists/${id}?offset=${offset}`, cookie),
+		makeSpotifyRequest(`/playlists/${id}/tracks?offset=${offset}`, cookie)
+	]);
+
+	return {
+		...playlist,
+		tracks
+	};
+}

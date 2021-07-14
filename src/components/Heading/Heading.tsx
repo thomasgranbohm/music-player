@@ -1,4 +1,4 @@
-import concat from "lib/concat";
+import { concat } from "lib/functions";
 import React, { FC, HTMLAttributes } from "react";
 import classes from "./Heading.module.scss";
 

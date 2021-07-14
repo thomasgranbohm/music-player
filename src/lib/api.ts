@@ -6,7 +6,7 @@ export const nextInstance = axios.create({
 
 export const spotifyInstance = axios.create({
 	baseURL: "https://api.spotify.com/v1",
-	// params: {
-	// 	limit: 50,
-	// },
+	params: {
+		market: "from_token"
+	}
 });

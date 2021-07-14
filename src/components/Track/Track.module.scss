@@ -1,31 +1,36 @@
 @import "../../styles/includes.scss";
 
 .container {
-    margin: $gap;
-    display: grid;
-    gap: $gap;
-    grid-template-areas: "number name explicit duration";
-    grid-template-columns: 1rem auto 1rem 2rem;
+	margin: $gap;
+	display: grid;
+	gap: $gap;
+	grid-template-areas: "number name explicit duration";
+	grid-template-columns: 1rem auto 1rem 2rem;
 
-    align-items: center;
+	align-items: center;
+}
+
+.with-image {
+	grid-template-areas: "number image name explicit duration";
+	grid-template-columns: 1rem 2rem auto 1rem 2rem;
 }
 
 .name {
-    grid-area: name;
+	grid-area: name;
 
-    @include no-text-overflow();
-    overflow: hidden;
+	@include no-text-overflow();
+	overflow: hidden;
 }
 
 .number {
-    grid-area: number;
+	grid-area: number;
 }
 
 .explicit {
-    grid-area: explicit;
+	grid-area: explicit;
 }
 
 .duration {
-    grid-area: duration;
-    text-align: end;
+	grid-area: duration;
+	text-align: end;
 }

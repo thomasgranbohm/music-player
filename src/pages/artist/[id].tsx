@@ -39,12 +39,14 @@ const Artist = ({
 			arr.findIndex((a) => a.name === name) === i
 	);
 
+	top.items = top.tracks;
+
 	return (
 		<div>
 			<PageTitle title={name} />
 			<Cover
 				type="artist"
-				followers={followers.total}
+				followers={followers}
 				genres={genres}
 				images={images}
 				name={name}
