@@ -1,6 +1,6 @@
 import Heading from "components/Heading/Heading";
 import { useState } from "react";
-import Statistic from "../Statistic/Statistic";
+import Statistic from "components/Statistic/Statistic";
 import classes from "./StatisticListing.module.scss";
 
 type StatisticListingProps = {

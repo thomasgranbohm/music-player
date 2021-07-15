@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
-import Link from "../Link/Link";
+import Link from "components/Link/Link";
 import classes from "./LinkListing.module.scss";
 
 type LinkListingProps = {
@@ -13,7 +13,9 @@ const LinkListing = ({
 	className,
 }: LinkListingProps) => {
 	return (
-		<span className={[classes["list"], className ? className : ""].join(" ")}>
+		<span
+			className={[classes["list"], className ? className : ""].join(" ")}
+		>
 			{links.map(({ key, link, title }, i) => (
 				<Link
 					className={classes["item"]}

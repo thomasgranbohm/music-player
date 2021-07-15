@@ -1,4 +1,5 @@
 import Heading from "components/Heading/Heading";
+import PageTitle from "components/PageTitle/PageTitle";
 import classes from "styles/Login.module.scss";
 
 const Login = () => {
@@ -6,6 +7,7 @@ const Login = () => {
 		"user-read-private user-read-email user-library-read streaming user-top-read playlist-read-private playlist-read-collaborative";
 	return (
 		<div className={classes["container"]}>
+			<PageTitle title="Login" />
 			<a
 				href={`https://accounts.spotify.com/authorize?response_type=code&client_id=${
 					process.env.NEXT_PUBLIC_CLIENT_ID

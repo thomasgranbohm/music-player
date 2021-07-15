@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps = getSSP(
 );
 
 const Statistics = ({ artists: baseArtists, tracks: baseTracks, range }) => {
-	console.log(baseArtists, baseTracks);
 	const [artists, setArtists] = useState(baseArtists.items);
 	const [tracks, setTracks] = useState(baseTracks.items);
 

@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
-import Image, { ImagesArray } from "../Image/Image";
-import Link from "../Link/Link";
-import LinkListing from "../LinkListing/LinkListing";
+import Image, { ImagesArray } from "components/Image/Image";
+import Link from "components/Link/Link";
+import LinkListing from "components/LinkListing/LinkListing";
 import classes from "./Statistic.module.scss";
 
 type ArtistProps = {

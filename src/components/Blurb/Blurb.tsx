@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import Image from "../Image/Image";
-import Link from "../Link/Link";
-import LinkListing from "../LinkListing/LinkListing";
+import Image from "components/Image/Image";
+import Link from "components/Link/Link";
+import LinkListing from "components/LinkListing/LinkListing";
 import classes from "./Blurb.module.scss";
 
 type BasicProps = {

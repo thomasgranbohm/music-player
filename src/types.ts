@@ -1,14 +1,25 @@
 export type Followers = {
-    href: string | null;
-    total: number;
-}
+	href: string | null;
+	total: number;
+};
 
 export type PagingObject<T> = {
-    href: string;
-    items: Array<T>;
-    limit: number;
-    next: string | null;
-    offset: number;
-    previous: string | null;
-    total: number;
+	href: string;
+	items: Array<T>;
+	limit: number;
+	next: string | null;
+	offset: number;
+	previous: string | null;
+	total: number;
+};
+
+export interface Owner {
+	display_name: string;
+	external_urls: {
+		[key: string]: string;
+	};
+	href: string;
+	id: string;
+	type: string;
+	uri: string;
 }

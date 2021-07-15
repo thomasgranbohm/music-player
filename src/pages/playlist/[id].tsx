@@ -1,4 +1,5 @@
 import Cover from "components/Cover/Cover";
+import PageTitle from "components/PageTitle/PageTitle";
 import TrackListing from "components/TrackListing/TrackListing";
 import { getPlaylist } from "lib/spotify";
 import { getSSP } from "lib/ssr";
@@ -16,15 +17,17 @@ export const getServerSideProps = getSSP(async ({ cookie, query }) => {
 });
 
 const Playlist = ({
-	playlist: { description, followers, name, images, tracks, ...rest },
+	playlist: { description, followers, name, images, owner, tracks, ...rest },
 }) => (
 	<div>
+		<PageTitle title={name} />
 		<Cover
 			type="playlist"
 			description={description}
 			followers={followers}
 			name={name}
 			images={images}
+			owner={owner}
 			playtime={tracks.items
 				.map(({ track: { duration_ms } }) => new Number(duration_ms))
 				.reduce((a, b) => a + b)}

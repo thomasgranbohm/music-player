@@ -6,6 +6,7 @@ import { nextInstance } from "lib/api";
 import useObserver from "lib/observer";
 import { getPlaylists } from "lib/spotify";
 import { getSSP } from "lib/ssr";
+import PageTitle from "components/PageTitle/PageTitle";
 
 export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getPlaylists(cookie);
@@ -37,6 +38,7 @@ const Playlists = ({ info }) => {
 
 	return (
 		<Loading isLoading={!playlists}>
+			<PageTitle title="Playlists" />
 			<BlurbListing title="playlists">
 				{playlists &&
 					playlists.map((item) => (

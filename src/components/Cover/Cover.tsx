@@ -1,10 +1,11 @@
 import Heading from "components/Heading/Heading";
 import { concat, parseDate, readableNumber } from "lib/functions";
 import { HTMLAttributes } from "react";
-import { Followers } from "types";
-import Image, { ImagesArray } from "../Image/Image";
-import LinkListing from "../LinkListing/LinkListing";
+import { Followers, Owner } from "types";
+import Image, { ImagesArray } from "components/Image/Image";
+import LinkListing from "components/LinkListing/LinkListing";
 import classes from "./Cover.module.scss";
+import Link from "components/Link/Link";
 
 type AlbumProps = {
 	artists: Array<{
@@ -33,6 +34,7 @@ type ArtistProps = {
 type PlaylistProps = {
 	description?: string;
 	followers: Followers;
+	owner: Owner;
 	playtime: number;
 	tracks_amount: number;
 	type: "playlist";
@@ -88,7 +90,7 @@ const Cover = ({ images, name, className, type, ...props }: CoverProps) => {
 		);
 	}
 	if (type === "playlist") {
-		const { description, followers, playtime, tracks_amount } =
+		const { description, followers, owner, playtime, tracks_amount } =
 			props as PlaylistProps;
 		return (
 			<div
@@ -108,6 +110,11 @@ const Cover = ({ images, name, className, type, ...props }: CoverProps) => {
 						{name}
 					</Heading>
 					{description && <Heading type="h2">{description}</Heading>}
+					<Heading type="h3">
+						<Link href={owner.external_urls["spotify"]}>
+							{owner.display_name}
+						</Link>
+					</Heading>
 					<div className={classes["information"]}>
 						<span>{readableNumber(followers.total)} followers</span>
 						<span>{tracks_amount} songs</span>

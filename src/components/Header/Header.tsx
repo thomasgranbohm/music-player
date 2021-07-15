@@ -1,11 +1,11 @@
-import Link from "../Link/Link";
+import Link from "components/Link/Link";
 import classes from "./Header.module.scss";
 
 const Header = ({ className }) => (
 	<header className={[classes["header"], className].join(" ")}>
 		<div className={classes["logo"]}>
 			<a href="/">
-				<img src="/images/spotify-logo-Green.png" alt="" />
+				<img src="/images/spotify-logo-White.png" alt="" />
 			</a>
 		</div>
 		<div className={classes["links"]}>

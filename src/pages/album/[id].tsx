@@ -1,11 +1,10 @@
+import Cover from "components/Cover/Cover";
 import PageTitle from "components/PageTitle/PageTitle";
 import TrackListing from "components/TrackListing/TrackListing";
 import { getAlbum } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import classes from "styles/Album.module.scss";
-import Cover from "../../components/Cover/Cover";
 
 export const getServerSideProps: GetServerSideProps = getSSP(
 	async ({ cookie, query }) => {
