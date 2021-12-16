@@ -5,7 +5,7 @@ import withSession from "lib/session";
 export const getServerSideProps = withSession(async ({ req }) => {
 	const cookie = req.session.get("user-data");
 
-	if (!cookie && !process.env.NEXT_PUBLIC_OFFLINE) {
+	if (!cookie && process.env.NEXT_PUBLIC_STATE !== "offline") {
 		return {
 			redirect: {
 				destination: "/login",

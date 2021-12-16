@@ -1,7 +1,8 @@
 @import "styles/includes.scss";
 
 .blurb {
-	width: 12em;
+	// width: 12em;
+	width: 100%;
 	padding: 1em;
 	display: flex;
 	flex-direction: column;
@@ -18,9 +19,12 @@
 		border-radius: 0.5em;
 	}
 
-	.cover img {
-		width: 10em;
-		height: 10em;
+	.cover {
+		// width: 10em;
+		// height: 10em;
+		width: 100%;
+		height: 100%;
+		aspect-ratio: 1;
 	}
 
 	transition: box-shadow 0.2s;

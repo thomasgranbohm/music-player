@@ -1,6 +1,6 @@
 import { spotifyInstance } from "./api";
 
-const { OFFLINE } = process.env;
+const { STATE } = process.env;
 
 export const makeSpotifyRequest = async (url, cookie, useMarket = true) => {
 	try {
@@ -36,12 +36,12 @@ export const makeSpotifyRequest = async (url, cookie, useMarket = true) => {
 };
 
 export const getAlbums = async (cookie, offset = 0) =>
-	OFFLINE
+	STATE === "offline"
 		? require("../../samples/albums.json")
 		: makeSpotifyRequest(`/me/albums?offset=${offset}`, cookie);
 
 export const getPlaylists = async (cookie, offset = 0) =>
-	OFFLINE
+	STATE === "offline"
 		? require("../../samples/playlists.json")
 		: makeSpotifyRequest(`/me/playlists?offset=${offset}`, cookie);
 
@@ -49,7 +49,7 @@ export const getArtistStatistics = async (
 	cookie,
 	{ offset = 0, range = "medium_term" }
 ) =>
-	OFFLINE
+	STATE === "offline"
 		? require("../../samples/top-artists.json")
 		: makeSpotifyRequest(
 				`/me/top/artists?time_range=${range}&offset=${offset}&limit=25`,
@@ -61,7 +61,7 @@ export const getTrackStatistics = async (
 	cookie,
 	{ offset = 0, range = "medium_term" }
 ) =>
-	OFFLINE
+	STATE === "offline"
 		? require("../../samples/top-tracks.json")
 		: makeSpotifyRequest(
 				`/me/top/tracks?time_range=${range}&offset=${offset}&limit=25`,
@@ -71,10 +71,10 @@ export const getTrackStatistics = async (
 
 export const getAlbum = async (cookie, id) => {
 	const [album, tracks] = await Promise.all([
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/album.json")
 			: makeSpotifyRequest(`/albums/${id}`, cookie),
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/album-tracks.json")
 			: makeSpotifyRequest(`/albums/${id}/tracks`, cookie),
 	]);
@@ -86,16 +86,16 @@ export const getAlbum = async (cookie, id) => {
 
 export const getArtist = async (cookie, id) => {
 	const [artist, albums, related, tracks] = await Promise.all([
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/artist.json")
 			: makeSpotifyRequest(`/artists/${id}`, cookie),
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/artist-albums.json")
 			: makeSpotifyRequest(`/artists/${id}/albums`, cookie),
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/artist-related-artists.json")
 			: makeSpotifyRequest(`/artists/${id}/related-artists`, cookie),
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/artist-top-tracks.json")
 			: makeSpotifyRequest(`/artists/${id}/top-tracks`, cookie),
 	]);
@@ -110,10 +110,10 @@ export const getArtist = async (cookie, id) => {
 
 export const getPlaylist = async (cookie, id, offset = 0) => {
 	const [playlist, tracks] = await Promise.all([
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/playlist.json")
 			: makeSpotifyRequest(`/playlists/${id}?offset=${offset}`, cookie),
-		OFFLINE
+		STATE === "offline"
 			? require("../../samples/playlist-tracks.json")
 			: makeSpotifyRequest(
 					`/playlists/${id}/tracks?offset=${offset}`,

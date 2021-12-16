@@ -1,8 +1,12 @@
 @import "styles/includes.scss";
 
-.image {
-	display: block;
+.container {
+	border-radius: 0.25em;
+	overflow: hidden;
+}
 
+.image {
+	transition: 0.2s;
 	background: $green url("/images/Spotify_Icon_RGB_White.png");
 	background-size: 80%;
 	background-position: center;

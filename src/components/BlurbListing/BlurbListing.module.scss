@@ -24,9 +24,9 @@
 		// justify-content: space-between;
 		justify-content: flex-start;
 		@include tablet-and-up {
-			// display: grid;
-			// grid-auto-rows: auto;
-			// grid-template-columns: repeat(auto-fill, 12em);
+			display: grid;
+			grid-auto-rows: auto;
+			grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 		}
 	}
 
