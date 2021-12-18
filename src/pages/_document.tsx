@@ -9,7 +9,9 @@ class CustomDocument extends Document {
 	render() {
 		return (
 			<Html>
-				<Head />
+				<Head>
+					<base href={process.env.NEXT_PUBLIC_BASE_URL} />
+				</Head>
 				{/* <body className="dark"> */}
 				<body>
 					<Main />
