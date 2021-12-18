@@ -1,5 +1,6 @@
 import Heading from "components/Heading/Heading";
 import PageTitle from "components/PageTitle/PageTitle";
+import Image from "next/image";
 import classes from "styles/Login.module.scss";
 
 const Login = () => {
@@ -18,11 +19,15 @@ const Login = () => {
 				)}`}
 				className={classes["button"]}
 			>
-				<img
-					className={classes["icon"]}
-					src="/images/Spotify_Icon_RGB_White.png"
-					alt="Spotify Icon"
-				/>
+				<div className={classes["icon"]}>
+					<Image
+						alt="Spotify Icon"
+						height={709}
+						src="/images/Spotify_Icon_RGB_White.png"
+						width={709}
+					/>
+				</div>
+
 				<Heading type="h2" className={classes["title"]}>
 					Login with Spotify
 				</Heading>
