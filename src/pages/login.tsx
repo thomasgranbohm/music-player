@@ -23,7 +23,7 @@ const Login = () => {
 					<Image
 						alt="Spotify Icon"
 						height={709}
-						src="/images/Spotify_Icon_RGB_White.png"
+						src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Spotify_Icon_RGB_White.png`}
 						width={709}
 					/>
 				</div>

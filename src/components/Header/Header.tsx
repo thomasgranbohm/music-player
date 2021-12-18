@@ -7,7 +7,7 @@ const Header = ({ className }) => (
 		<a href="/">
 			<div className={classes["logo"]}>
 				<Image
-					src="/images/spotify-logo-White.png"
+					src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/spotify-logo-White.png`}
 					alt="Spotify Logo"
 					width={2362}
 					height={708}
