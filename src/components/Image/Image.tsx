@@ -25,9 +25,8 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 	}, [images]);
 
 	const url =
-		sortedImages[0](
-			sortedImages[0] && "url" in sortedImages[0] && sortedImages[0].url
-		) || "/images/Spotify_Icon_RGB_White.png";
+		(sortedImages[0] && "url" in sortedImages[0] && sortedImages[0].url) ||
+		"/images/Spotify_Icon_RGB_White.png";
 
 	return (
 		<div
