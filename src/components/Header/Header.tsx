@@ -9,6 +9,7 @@ const Header = ({ className }) => (
 				<Image
 					src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/spotify-logo-White.png`}
 					alt="Spotify Logo"
+					priority={true}
 					width={2362}
 					height={708}
 				/>

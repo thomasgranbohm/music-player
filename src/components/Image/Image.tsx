@@ -26,7 +26,9 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 
 	const biggest = sortedImages.pop();
 
-	const url = biggest.url || "/images/Spotify_Icon_RGB_White.png";
+	const url =
+		(biggest && "url" in biggest && biggest.url) ||
+		"/images/Spotify_Icon_RGB_White.png";
 
 	return (
 		<div
