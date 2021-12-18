@@ -28,6 +28,9 @@
 			grid-auto-rows: auto;
 			grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 		}
+		> div {
+			width: 12rem;
+		}
 	}
 
 	.listing.scroll > & {

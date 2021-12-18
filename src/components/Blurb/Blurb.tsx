@@ -93,6 +93,7 @@ const Blurb = ({
 					className={classes["cover"]}
 					images={images}
 					name={`${name} cover`}
+					look="rounded"
 				/>
 			</Link>
 			<Link href={href}>

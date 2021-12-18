@@ -60,6 +60,7 @@ const Cover = ({ images, name, className, type, ...props }: CoverProps) => {
 				<Image
 					className={classes["cover"]}
 					images={images}
+					look="rounded"
 					name={name}
 					size="large"
 				/>
@@ -102,6 +103,7 @@ const Cover = ({ images, name, className, type, ...props }: CoverProps) => {
 				<Image
 					className={classes["cover"]}
 					images={images}
+					look="rounded"
 					name={name}
 					size="large"
 				/>
@@ -135,6 +137,7 @@ const Cover = ({ images, name, className, type, ...props }: CoverProps) => {
 			<Image
 				className={classes["cover"]}
 				images={images}
+				look="rounded"
 				name={name}
 				size="large"
 			/>
