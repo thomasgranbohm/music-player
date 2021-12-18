@@ -24,11 +24,10 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 		setSortedImages(images.sort(sort).reduce(reduce, []));
 	}, [images]);
 
-	const biggest = sortedImages.pop();
-
 	const url =
-		(biggest && "url" in biggest && biggest.url) ||
-		"/images/Spotify_Icon_RGB_White.png";
+		sortedImages[0](
+			sortedImages[0] && "url" in sortedImages[0] && sortedImages[0].url
+		) || "/images/Spotify_Icon_RGB_White.png";
 
 	return (
 		<div
@@ -42,7 +41,7 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 			<NextImage
 				src={url}
 				alt={name}
-				{...biggest}
+				{...sortedImages[0]}
 				objectFit="cover"
 				layout={"responsive"}
 				placeholder="blur"
