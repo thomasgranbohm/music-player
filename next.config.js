@@ -1,6 +1,7 @@
 module.exports = {
+	basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/",
 	images: {
 		domains: ["i.scdn.co", "lineup-images.scdn.co", "mosaic.scdn.co"],
-		imageSizes: [8, 16, 32, 48, 64, 96, 128, 256, 384],
+		deviceSizes: [240, 400, 640, 750, 828, 1080, 1200],
 	},
 };

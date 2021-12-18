@@ -15,7 +15,7 @@ export type ImageProps = {
 
 const Image = ({ className, images, look, name, size }: ImageProps) => {
 	const reduce = (p, c) => [...p, c];
-	const sort = (a, b) => a.width * a.height - b.width * b.height;
+	const sort = (a, b) => b.width * b.height - a.width * a.height;
 	const [sortedImages, setSortedImages] = useState(
 		images.sort(sort).reduce(reduce, [])
 	);
@@ -26,7 +26,7 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 
 	const url =
 		(sortedImages[0] && "url" in sortedImages[0] && sortedImages[0].url) ||
-		"/images/Spotify_Icon_RGB_White.png";
+		`/images/Spotify_Icon_RGB_White.png`;
 
 	return (
 		<div
@@ -44,7 +44,7 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 				objectFit="cover"
 				layout={"responsive"}
 				placeholder="blur"
-				blurDataURL={`/_next/image?url=${url}&w=8&q=1`}
+				blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}/_next/image?url=${url}&w=16&q=1`}
 			/>
 		</div>
 	);
