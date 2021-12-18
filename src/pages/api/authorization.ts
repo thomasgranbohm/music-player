@@ -29,7 +29,7 @@ const Authorization = withSession(async (req, res) => {
 	req.session.set("user-data", { ...resp.data });
 	await req.session.save();
 
-	return res.redirect("/");
+	return res.redirect(process.env.NEXT_PUBLIC_BASE_PATH + "/");
 });
 
 export default Authorization;
