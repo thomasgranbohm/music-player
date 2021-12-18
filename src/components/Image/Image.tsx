@@ -14,8 +14,8 @@ export type ImageProps = {
 };
 
 const Image = ({ className, images, look, name, size }: ImageProps) => {
-	const reduce = (p, c) => [...p, c["url"]];
-	const sort = (a, b) => b.width * b.height - a.width * a.height;
+	const reduce = (p, c) => [...p, c];
+	const sort = (a, b) => a.width * a.height - b.width * b.height;
 	const [sortedImages, setSortedImages] = useState(
 		images.sort(sort).reduce(reduce, [])
 	);
@@ -24,7 +24,9 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 		setSortedImages(images.sort(sort).reduce(reduce, []));
 	}, [images]);
 
-	const url = sortedImages[0] || "/images/Spotify_Icon_RGB_White.png";
+	const biggest = sortedImages.pop();
+
+	const url = biggest.url || "/images/Spotify_Icon_RGB_White.png";
 
 	return (
 		<div
@@ -38,8 +40,7 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 			<NextImage
 				src={url}
 				alt={name}
-				width={512}
-				height={512}
+				{...biggest}
 				objectFit="cover"
 				layout={"responsive"}
 				placeholder="blur"
