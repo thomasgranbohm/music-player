@@ -10,7 +10,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"axios": "^0.21.1",
+		"axios": "^0.21.2",
 		"form-data": "^4.0.0",
 		"next": "11",
 		"next-iron-session": "^4.1.13",
