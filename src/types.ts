@@ -23,3 +23,6 @@ export interface Owner {
 	type: string;
 	uri: string;
 }
+
+export type Image = { height: number; url: string; width: number };
+export type ImagesArray = Array<Image>;

@@ -1,8 +1,8 @@
 import Heading from "components/Heading/Heading";
 import { concat, parseDate, readableNumber } from "lib/functions";
 import { HTMLAttributes } from "react";
-import { Followers, Owner } from "types";
-import Image, { ImagesArray } from "components/Image/Image";
+import { Followers, ImagesArray, Owner } from "types";
+import Image from "components/Image/Image";
 import LinkListing from "components/LinkListing/LinkListing";
 import classes from "./Cover.module.scss";
 import Link from "components/Link/Link";

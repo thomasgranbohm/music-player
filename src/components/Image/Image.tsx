@@ -1,22 +1,21 @@
-import { concat } from "lib/functions";
+import { concat, getSpecificImageSize } from "lib/functions";
 import { useEffect, useState } from "react";
 import NextImage from "next/image";
 import classes from "./Image.module.scss";
-
-export type ImagesArray = Array<{ height: number; url: string; width: number }>;
+import { Image as ImageType, ImagesArray } from "types";
 
 export type ImageProps = {
 	className?: string;
-	images: ImagesArray;
+	images: ImageType[];
 	look?: "rounded";
 	name: string;
-	size?: "large" | "medium" | "small";
+	size: "large" | "medium" | "small";
 };
 
 const Image = ({ className, images, look, name, size }: ImageProps) => {
 	const reduce = (p, c) => [...p, c];
 	const sort = (a, b) => b.width * b.height - a.width * a.height;
-	const [sortedImages, setSortedImages] = useState(
+	const [sortedImages, setSortedImages] = useState<ImagesArray>(
 		images.sort(sort).reduce(reduce, [])
 	);
 
@@ -24,9 +23,17 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 		setSortedImages(images.sort(sort).reduce(reduce, []));
 	}, [images]);
 
-	const url =
-		(sortedImages[0] && "url" in sortedImages[0] && sortedImages[0].url) ||
-		`/images/Spotify_Icon_RGB_White.png`;
+	const hasSortedImages = sortedImages && sortedImages.length > 0;
+	const selected = getSpecificImageSize(images, size);
+	const smallest = sortedImages.slice().pop();
+
+	const selectedURL =
+		(hasSortedImages && selected && "url" in selected && selected.url) ||
+		`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Spotify_Icon_RGB_White.png`;
+
+	const smallestURL =
+		(hasSortedImages && smallest && "url" in smallest && smallest.url) ||
+		`${process.env.NEXT_PUBLIC_BASE_PATH}/images/Spotify_Icon_RGB_White.png`;
 
 	return (
 		<div
@@ -38,13 +45,15 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 			)}
 		>
 			<NextImage
-				src={url}
+				width={(selected && selected.width) || 640}
+				height={(selected && selected.height) || 640}
+				src={selectedURL}
 				alt={name}
-				{...sortedImages[0]}
 				objectFit="cover"
+				loading="lazy"
 				layout={"responsive"}
 				placeholder="blur"
-				blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}/_next/image?url=${url}&w=16&q=1`}
+				blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}/_next/image?url=${smallestURL}&w=16&q=1`}
 			/>
 		</div>
 	);

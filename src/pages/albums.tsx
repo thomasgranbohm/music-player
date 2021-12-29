@@ -6,6 +6,7 @@ import { nextInstance } from "lib/api";
 import useObserver from "lib/observer";
 import { getAlbums } from "lib/spotify";
 import { getSSP } from "lib/ssr";
+import { NextSeo } from "next-seo";
 import { useState } from "react";
 
 export const getServerSideProps = getSSP(async ({ cookie }) => {
@@ -38,7 +39,7 @@ const Albums = ({ info }) => {
 
 	return (
 		<Loading isLoading={!info}>
-			<PageTitle title="Albums" />
+			<NextSeo title="Albums" />
 			<BlurbListing title="albums">
 				{albums.map(({ album }) => (
 					<AlbumBlurb {...album} key={album.id} />

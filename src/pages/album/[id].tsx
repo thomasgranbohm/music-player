@@ -4,6 +4,7 @@ import TrackListing from "components/TrackListing/TrackListing";
 import { getAlbum } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import { GetServerSideProps } from "next";
+import { NextSeo } from "next-seo";
 import classes from "styles/Album.module.scss";
 
 export const getServerSideProps: GetServerSideProps = getSSP(
@@ -30,7 +31,7 @@ const Album = ({
 	},
 }) => (
 	<div className={classes["container"]}>
-		<PageTitle title={`${name} - ${artists[0].name}`} />
+		<NextSeo title={`${name} - ${artists[0].name}`} />
 		<Cover
 			type="album"
 			className={classes["header"]}

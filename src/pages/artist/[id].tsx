@@ -5,6 +5,7 @@ import PageTitle from "components/PageTitle/PageTitle";
 import TrackListing from "components/TrackListing/TrackListing";
 import { getArtist } from "lib/spotify";
 import { getSSP } from "lib/ssr";
+import { NextSeo } from "next-seo";
 
 export const getServerSideProps = getSSP(async ({ cookie, query }) => {
 	const { id } = query;
@@ -43,7 +44,7 @@ const Artist = ({
 
 	return (
 		<div>
-			<PageTitle title={name} />
+			<NextSeo title={name} />
 			<Cover
 				type="artist"
 				followers={followers}

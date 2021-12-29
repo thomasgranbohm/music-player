@@ -16,7 +16,7 @@ const TrackListing = ({ tracks: items, type }: Props) => {
 	}, [tracks.items, items]);
 
 	return (
-		<div className={classes["container"]}>
+		<ol className={classes["container"]}>
 			{tracks.items.map((props, i) => {
 				if (type === "artist") {
 					return <Track {...props} track_number={i + 1} key={i} />;
@@ -28,7 +28,7 @@ const TrackListing = ({ tracks: items, type }: Props) => {
 					return <Track {...props} key={i} />;
 				}
 			})}
-		</div>
+		</ol>
 	);
 };
 

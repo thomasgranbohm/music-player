@@ -5,6 +5,7 @@ import useObserver from "lib/observer";
 import { getArtistStatistics, getTrackStatistics } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import { GetServerSideProps } from "next";
+import { NextSeo } from "next-seo";
 import { useState } from "react";
 import classes from "styles/Statistics.module.scss";
 
@@ -61,6 +62,7 @@ const Statistics = ({ artists: baseArtists, tracks: baseTracks, range }) => {
 
 	return (
 		<>
+			<NextSeo title="Statistics" />
 			<Heading type="h1">Statistics</Heading>
 			<div className={classes["listings"]}>
 				<StatisticListing

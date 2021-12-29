@@ -1,4 +1,4 @@
-import Image, { ImagesArray } from "components/Image/Image";
+import Image from "components/Image/Image";
 import LinkListing from "components/LinkListing/LinkListing";
 import { concat, parseDate } from "lib/functions";
 import classes from "./Track.module.scss";
@@ -18,12 +18,11 @@ const Track = ({
 	artists,
 	duration_ms,
 	explicit,
-	id,
 	name,
 	track_number,
 }: Props) => {
 	return (
-		<div
+		<li
 			className={concat(classes["container"], [
 				classes["with-image"],
 				!!album?.images,
@@ -49,7 +48,7 @@ const Track = ({
 				<b>{explicit ? "E" : ""}</b>
 			</p>
 			<p className={classes["duration"]}>{parseDate(duration_ms)}</p>
-		</div>
+		</li>
 	);
 };
 

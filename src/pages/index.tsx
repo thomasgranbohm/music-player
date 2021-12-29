@@ -1,6 +1,7 @@
 import Heading from "components/Heading/Heading";
 import PageTitle from "components/PageTitle/PageTitle";
 import withSession from "lib/session";
+import { NextSeo } from "next-seo";
 
 export const getServerSideProps = withSession(async ({ req }) => {
 	const cookie = req.session.get("user-data");
@@ -21,7 +22,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
 const Home = ({}) => {
 	return (
 		<>
-			<PageTitle title="Statistics" />
+			{/* <NextSeo */}
 			<Heading type="h1">Home</Heading>
 		</>
 	);

@@ -7,6 +7,7 @@ import useObserver from "lib/observer";
 import { getPlaylists } from "lib/spotify";
 import { getSSP } from "lib/ssr";
 import PageTitle from "components/PageTitle/PageTitle";
+import { NextSeo } from "next-seo";
 
 export const getServerSideProps = getSSP(async ({ cookie }) => {
 	const resp = await getPlaylists(cookie);
@@ -38,7 +39,7 @@ const Playlists = ({ info }) => {
 
 	return (
 		<Loading isLoading={!playlists}>
-			<PageTitle title="Playlists" />
+			<NextSeo title="Playlists" />
 			<BlurbListing title="playlists">
 				{playlists &&
 					playlists.map((item) => (
