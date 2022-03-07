@@ -51,7 +51,7 @@ const Image = ({ className, images, look, name, size }: ImageProps) => {
 				alt={name}
 				objectFit="cover"
 				loading="lazy"
-				layout={"responsive"}
+				layout="responsive"
 				placeholder="blur"
 				blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}/_next/image?url=${smallestURL}&w=16&q=1`}
 			/>
