@@ -4,12 +4,6 @@
 
 Uses Spotify's [Web API](https://developer.spotify.com/documentation/web-api/) and [Web Playback API](https://developer.spotify.com/documentation/web-playback-sdk/)
 
-A logged in user gets access to:
-
--   Saved tracks and albums
--   Playlists
--   Statistics
-
 ## Features
 
 - [x] Page with saved albums, playlists, and tracks
