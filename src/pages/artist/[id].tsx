@@ -52,7 +52,7 @@ const Artist = ({
 				images={images}
 				name={name}
 			/>
-			<TrackListing type="artist" tracks={top} />
+			<TrackListing type="artist" tracks={top} dropdown />
 			{albums.length > 0 && (
 				<BlurbListing title="albums" scroll>
 					{albums.map((album) => (

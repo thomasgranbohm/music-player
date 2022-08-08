@@ -1,11 +1,13 @@
 $light-color: #282828;
 $light-background: #ffffff;
 $light-alt-background: #dddddd;
+$dark-contrast-background: #242424;
 $light-inverted-background: #191414;
 
 $dark-color: #ddd;
 $dark-background: #121212;
 $dark-alt-background: #000000;
+$dark-contrast-background: #242424;
 $dark-inverted-background: #ffffff;
 
 $spotify-green: #1db954;
@@ -20,6 +22,7 @@ $gap-amount: 1rem;
 $color: var(--color);
 $background: var(--background);
 $alt-background: var(--alt-background);
+$contrast-background: var(--contrast-background);
 $inverted-background: var(--inverted-background);
 $green: var(--green);
 $gap: var(--gap);

@@ -86,8 +86,8 @@ const Blurb = ({
 	...rest
 }: BlurbProps) => {
 	return (
-		<div className={[classes["blurb"], classes[type]].join(" ")}>
-			<Link href={href}>
+		<Link href={href}>
+			<div className={[classes["blurb"], classes[type]].join(" ")}>
 				<Image
 					size="medium"
 					className={classes["cover"]}
@@ -95,13 +95,11 @@ const Blurb = ({
 					name={`${name} cover`}
 					look="rounded"
 				/>
-			</Link>
-			<Link href={href}>
 				<p className={classes["title"]} title={name}>
 					<b>{name}</b> {explicit && "E"}
 				</p>
-			</Link>
-			<div className={classes["sub-title"]}>{subtitle}</div>
-		</div>
+				<div className={classes["sub-title"]}>{subtitle}</div>
+			</div>
+		</Link>
 	);
 };

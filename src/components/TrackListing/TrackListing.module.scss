@@ -1,0 +1,21 @@
+@import "styles/includes.scss";
+
+.container {
+	&.dropdown {
+	}
+}
+
+.dropdown-handler {
+	appearance: none;
+	border: 0;
+	background-color: transparent;
+	font-weight: bold;
+	color: $color;
+	padding: $gap;
+
+	font-size: 12px;
+
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
